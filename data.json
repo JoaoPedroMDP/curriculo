@@ -2,6 +2,7 @@
     "name": "João Pedro Martins de Paula",
     "birth_date": "13/03/2000",
     "sex": "Masculino",
+    "civil_state": "Solteiro",
     "linkedin": "https://www.linkedin.com/in/joaopedromdp/",
     "github": "https://github.com/JoaoPedroMDP",
     "email": "joao.pedro.mdp@outlook.com",
@@ -27,6 +28,8 @@
                     "start": "01/09/2022",
                     "end": "01/09/2023"
                 },
+                "tools": ["Python", "Selenium"],
+                "skills": ["Escrita acadêmica"],
                 "description": "Pesquisa sobre Web Scraping para obtenção de dados turísticos do Tripadvisor. Desenvolvi um Scrapper, juntamente de um artigo científico sobre o tema."
             },
             {
