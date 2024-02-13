@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  front:
+    build:
+      context: ./curriculo
+    image: curriculo-front
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+      HOSTNAME: "0.0.0.0"
