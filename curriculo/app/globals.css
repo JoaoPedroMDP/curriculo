@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+  font-family: Bebas Neue;
+  src: url("../public/fonts/BebasNeue-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Raleway;
+  src: url("../public/fonts/Raleway-VariableFont_wght.ttf") format("truetype");
+}
+
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
