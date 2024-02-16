@@ -18,12 +18,40 @@ class Experience {
         this.skills = skills
     }
 
-    hasPosition() {
-        return false;
+    renderPosition(){
+        return <></>;
     }
 
-    hasInterval() {
-        return false;
+    renderInterval(){
+        return <></>;
+    }
+
+    render(): JSX.Element{
+        return (
+            <div className="mt-10">
+                <p className="font-raleway font-bold text-[34px]">{this.institution}</p>
+                    {this.renderPosition()}
+                    {this.renderInterval()}
+                    
+                    {this.tools.length > 0
+                        ?<div className="flex flex-row flex-wrap gap-2 pt-2">
+                        {this.tools.map((tool) => {
+                            return tool.render();
+                        })}
+                        </div>
+                        : null
+                    }
+                    {this.skills.length > 0
+                        ?<div className="flex flex-row flex-wrap gap-2 pt-2">
+                        {this.skills.map((skill) => {
+                            return skill.render();
+                        })}
+                        </div>
+                        : null
+                    }
+                <p className="pt-5 text-[20px]">{this.description}</p>
+            </div>
+        );
     }
 }
 
@@ -31,18 +59,18 @@ class Job extends Experience {
     position: string
     interval: Interval
 
-    constructor(id: string, institution: string, position: string, interval: Interval, description: string) {
-        super(id, institution, "job", description)
+    constructor(id: string, institution: string, position: string, interval: Interval, description: string, tools: Tool[] = [], skills: Skill[] = []) {
+        super(id, institution, "job", description, tools, skills)
         this.position = position
         this.interval = interval
     }
 
-    hasPosition() {
-        return true;
+    renderPosition(){
+        return <p className="font-raleway font-bold text-[32px]">{this.position}</p>;
     }
 
-    hasInterval() {
-        return true;
+    renderInterval(){
+        return <p className="font-raleway text-[24px]">{this.interval.render()}</p>;
     }
 }
 
@@ -50,16 +78,19 @@ class Course extends Experience {
     name: string
     interval: Interval
 
-    constructor(id: string, institution: string, name: string, interval: Interval, description: string) {
-        super(id, institution, "course", description)
+    constructor(id: string, institution: string, name: string, interval: Interval, description: string, tools: Tool[] = [], skills: Skill[] = []) {
+        super(id, institution, "course", description, tools, skills);
         this.name = name
         this.interval = interval
     }
 
-    hasInterval() {
-        return true;
+    renderPosition(){
+        return <p className="font-raleway font-bold text-[32px]">{this.name}</p>;
     }
 
+    renderInterval(){
+        return <p className="font-raleway text-[24px]">{this.interval.render()}</p>;
+    }
 }
 
 class Paper extends Experience {
@@ -70,10 +101,6 @@ class Paper extends Experience {
         super(id, institution, "paper", description)
         this.title = title
         this.publication_date = publication_date
-    }
-
-    hasInterval(): boolean {
-        return false;
     }
 }
 

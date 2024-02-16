@@ -9,7 +9,7 @@ export default class Interval{
 
     render(){
         return(
-            <p className="font-raleway text-[24px]">{this.start} - {this.end}</p>
+            <span className="font-raleway text-[24px]">{this.start} - {this.end}</span>
         )
     }
 }
