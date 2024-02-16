@@ -1,12 +1,24 @@
 import Image from "next/image";
 import { promises as fs } from "fs";
+import Experience from "./components/experience";
+import CustomDate from "./objects/date";
+
+function experiencesColumn(experiences: any[], title: string, bgColor: string, textColor: string, scroll: string){
+    return(
+        <div id="professional" className={`flex flex-col basis-1/2 justify-top align-middle py-5 px-[5vw] ${bgColor} ${textColor}`}>
+            <p className="sticky font-raleway text-[64px] text-center">{title}</p>
+            <div className={`${scroll} scroll overflow-auto overscroll-contain max-h-[60vh] mt-10`}>
+            {
+                experiences.map((exp) => 
+                    <Experience key={exp.id} experience_data={exp} />)
+            }
+            </div>
+        </div>
+    );
+}
+
 
 export default async function Home() {
-    function getDateFromString(date: string){
-        let pieces = date.split("/").map((piece) => parseInt(piece));
-        return new Date(pieces[2], pieces[1], pieces[0])
-    }
-
     function computeAge(birth_date: Date){
         let today = new Date();
         if(today.getDate() >= birth_date.getDate() && today.getMonth() >= birth_date.getMonth()){
@@ -17,18 +29,26 @@ export default async function Home() {
 
     const file = await fs.readFile(process.cwd() + '/data.json', 'utf8');
     const data = JSON.parse(file);
-    let age = computeAge(getDateFromString(data.birth_date));
+    let age = computeAge(new CustomDate(data.birth_date));
 
     return(
         <section id="site" className="flex flex-col">
             <section id="banner" 
-            className="bg-banner bg-cover bg-center flex flex-row justify-between items-center px-[10vw] py-[20vh]"
+            className="relative bg-cover bg-center flex flex-row justify-between items-center px-[10vw] py-[20vh]"
             >
+                <Image  
+                src={"/beach_background.png"} 
+                fill
+                alt="Autor do currículo de touca, numa praia nublada com neblina"
+                className="absolute opacity-30"
+                />
                 <div className="flex flex-col">
                     <p className="font-bebas text-[96px]">{data.name}</p>
                     <p className="font-raleway text-[36px]">{data.title}</p>
                     <p className="font-raleway text-[24px]">{data.marital_status} | {age} anos</p>
-                    <p className="font-raleway text-[24px]">joao.pedro.mdp@outlook.com | Linkedin | Github</p>
+                    <p className="font-raleway text-[24px]">
+                        {data.email} | <a href={data.linkedin} target="blank">Linkedin</a> | <a href={data.github} target="blank">Github</a>
+                    </p>
                 </div>
 
                 <div className="pl-20">
@@ -60,13 +80,12 @@ export default async function Home() {
                 </div>
             </section>
             <section id="experiences" className="flex flex-row justify-center">
-                <div id="professional" className="flex flex-col justify-center align-middle">
-                    <p>Experiência profissional</p>
-                </div>
-                <div id="academic" className="flex flex-col justify-center align-middle">
-                    <p>Experiência acadêmica</p>
-                </div>
+                {experiencesColumn(data.professional_experiences, "Experiência profissional", "bg-darkBlue", "text-white", "light-scroll")}
+                {experiencesColumn(data.academic_experiences, "Experiência acadêmica", "bg-whiteBlue", "text-darkBlue", "dark-scroll")}
             </section>
+            <footer className="h-[20vh] flex">
+                <p className="text-center mb-10">Feito com &lt;3 por João Pedro</p>
+            </footer>
         </section>
     );
 }

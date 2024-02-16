@@ -11,9 +11,6 @@ const config: Config = {
       center: true,
     },
     extend: {
-      backgroundImage: {
-        'banner': "url('/beach_background.jpg')",
-      },
       fontFamily: {
         bebas: ['"Bebas Neue"', 'sans-serif'],
         raleway: ['Raleway', 'sans-serif'],
@@ -21,12 +18,13 @@ const config: Config = {
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
-        'dark-blue': '#013440',
-        'medium-blue': '#026873',
-        'light-blue': '#2AB0BF',
-        'white-blue': '#DEF2F4',
-        'white': '#FAFAFA',
-        'black': '#0F0F0F',
+        darkBlue: '#013440',
+        mediumBlue: '#026873',
+        lightBlue: '#2AB0BF',
+        whiteBlue: '#DEF2F4',
+        white: '#FAFAFA',
+        black: '#0F0F0F',
+        yellow: '#F2B641'
       }
     },
   },

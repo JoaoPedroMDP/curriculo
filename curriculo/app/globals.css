@@ -43,3 +43,33 @@ body {
     text-wrap: balance;
   }
 }
+
+a {
+  @apply text-yellow hover:text-lightBlue visited:text-lightBlue;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.scroll::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+}
+
+.light-scroll::-webkit-scrollbar-thumb{
+  @apply bg-whiteBlue;
+}
+.dark-scroll::-webkit-scrollbar-thumb{
+  @apply bg-darkBlue;
+}
+
+/* Handle on hover */
+.scroll::-webkit-scrollbar-thumb:hover {
+  @apply bg-yellow
+}
