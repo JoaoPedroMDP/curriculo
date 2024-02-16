@@ -40,7 +40,7 @@ export default async function Home() {
                 src={"/beach_background.png"} 
                 fill
                 alt="Autor do currículo de touca, numa praia nublada com neblina"
-                className="absolute opacity-30"
+                className="absolute opacity-30 z-[-1]"
                 />
                 <div className="flex flex-col">
                     <p className="font-bebas text-[96px]">{data.name}</p>
