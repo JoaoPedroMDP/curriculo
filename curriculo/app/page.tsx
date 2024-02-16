@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { promises as fs } from "fs";
 import Experience from "./components/experience";
-import CustomDate from "./objects/date";
+import CustomDate from "./objects/customDate";
+import Achievement from "./objects/achievement";
 
 function experiencesColumn(experiences: any[], title: string, bgColor: string, textColor: string, scroll: string){
     return(
@@ -83,8 +84,19 @@ export default async function Home() {
                 {experiencesColumn(data.professional_experiences, "Experiência profissional", "bg-darkBlue", "text-white", "light-scroll")}
                 {experiencesColumn(data.academic_experiences, "Experiência acadêmica", "bg-whiteBlue", "text-darkBlue", "dark-scroll")}
             </section>
-            <section id="achievements" className="bg-yellow flex justify-center">
+            <section id="achievements" className="bg-yellow flex flex-col justify-center items-center pb-10">
                 <h1 className="text-darkBlue font-raleway pt-10 text-[64px]">Conquistas</h1>
+                <h2 className="text-darkBlue font-medium font-raleway text-[24px]">Algumas são fruto do esforço, outras vêm de surpresa.</h2>
+                <h2 className="text-darkBlue font-medium font-raleway text-[24px]">E outras, nós nos esforçamos sem saber, por gostarmos do que fazemos, e então somos surpreendidos.</h2> 
+                <h2 className="text-darkBlue font-medium font-raleway text-[24px]">Particularmente, gosto da última opção.</h2>
+                <div className="flex flex-row justify-center flex-wrap gap-5 pt-5">
+                    {
+                        data.achievements.map((achievement: any) => {
+                            let a: Achievement = Achievement.fromData(achievement);
+                            return <div key={a.id}>{a.render()}</div>
+                        })
+                    }
+                </div>
             </section>
             <footer className="h-[20vh] flex justify-center">
             </footer>

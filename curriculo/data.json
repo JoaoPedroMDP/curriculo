@@ -123,7 +123,7 @@
             "position": "Assessor de Projetos",
             "tools": ["Scrum", "Gitlab", "OBS Studio"],
             "skills": ["Resolução de problemas", "Falar em público", "Capacitação de novos membros"],
-            "description": "Responsável por auxiliar na gestão de projetos, procurando por melhorias e otimizações no processo de desenvolvimento de software. Também responsável pela capacitação de novos membros (Realizei 03 capacitações ao longo de todo a minha estadia na empresa)",
+            "description": "Responsável por auxiliar na gestão de projetos, procurando por melhorias e otimizações no processo de desenvolvimento de software. Também responsável pela capacitação de novos membros (Realizei 03 capacitações ao longo de toda a minha estadia na empresa)",
             "dates": {
                 "start": "01/04/2020",
                 "end": "31/12/2020"
@@ -146,56 +146,56 @@
     "achievements": [
         {
             "id": "0",
-            "name": "Desenvolvedor destaque",
+            "title": "Desenvolvedor destaque",
             "institution": "Ecomp",
             "description": "Prêmio dado ao desenvolvedor que mais se destacou no ano de 2020",
             "date": "01/12/2020"
         },
         {
             "id": "1",
-            "name": "Desenvolvedor destaque Back End",
+            "title": "Desenvolvedor destaque Back End",
             "institution": "Ecomp",
             "description": "Prêmio dado ao desenvolvedor de Back End que mais se destacou no ano de 2020",
             "date": "01/12/2020"
         },
         {
             "id": "2",
-            "name": "Ecomper de Honra",
+            "title": "Ecomper de Honra",
             "institution": "Ecomp",
             "description": "Prêmio dado ao membro votado como destaque de 2020",
             "date": "01/12/2020"
         },
         {
             "id": "3",
-            "name": "Membro Jim Carrey",
+            "title": "Membro Jim Carrey",
             "institution": "Ecomp",
             "description": "Prêmio dado ao membro mais engraçado (espero) de 2020",
             "date": "01/12/2020"
         },
         {
             "id": "4",
-            "name": "Dream Team",
+            "title": "Dream Team",
             "institution": "Ecomp",
             "description": "Prêmio dado aos integrantes do Dream Team de desenvolvedores de 2020",
             "date": "01/12/2020"
         },
         {
             "id": "5",
-            "name": "Membro Jim Carrey",
+            "title": "Membro Jim Carrey",
             "institution": "Ecomp",
             "description": "Prêmio dado ao membro mais engraçado (se não for isso, me chamaram de palhaço por 2 anos seguidos) de 2021",
             "date": "01/12/2021"
         },
         {
             "id": "6",
-            "name": "Desenvolvedor 'brabo' Back End",
+            "title": "Desenvolvedor 'brabo' Back End",
             "institution": "Ecomp",
             "description": "Prêmio dado ao desenvolvedor de Back End que mais se destacou no ano de 2021",
             "date": "01/12/2021"
         },
         {
             "id": "7",
-            "name": "Ecomper de Honra",
+            "title": "Ecomper de Honra",
             "institution": "Ecomp",
             "description": "Prêmio dado ao membro votado como destaque de 2021",
             "date": "01/12/2021"

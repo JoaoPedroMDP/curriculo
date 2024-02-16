@@ -2,16 +2,16 @@ import { Course, Job, Paper } from "../objects/experiences";
 import Interval from "../objects/interval";
 import { Skill, Tool } from "../objects/learnables";
 
-export default function Experience({ experience_data }) {
+export default function Experience({ experience_data }: any) {
 
     var tools: Tool[] = [];
     if (experience_data.tools !== undefined) {
-        tools = experience_data.tools.map(raw_t => new Tool(raw_t))
+        tools = experience_data.tools.map((raw_t: string) => new Tool(raw_t))
     }
 
     var skills: Skill[] = [];
     if (experience_data.skills !== undefined) {
-        skills = experience_data.skills.map(raw_s => new Skill(raw_s))
+        skills = experience_data.skills.map((raw_s: string) => new Skill(raw_s))
     }
 
     var interval: Interval;
