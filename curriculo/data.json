@@ -14,17 +14,21 @@
     ],
     "academic_experiences": [
             {
+                "id": "0",
+                "type": "course",
                 "institution": "Universidade Federal do Paraná",
                 "title": "Tecnologia em análise e desenvolvimento de sistemas",
                 "dates": {
                     "start": "01/01/2020",
                     "end": "31/12/2024"
                 },
-                "description": "Sim, demorei mais do que o período mínimo para cursar. Mas participei de empresa júnior, iniciação científica, estagiei, participei do centro acadêmico e tirei boas notas. Me orgulho de minha trajetória acadêmica. E desejo continuá-la.",
+                "description": "Demorei mais do que o período mínimo para cursar, mas participei de empresa júnior, iniciação científica, estagiei, participei do centro acadêmico e tirei boas notas. Me orgulho de minha trajetória acadêmica. E desejo continuá-la.",
                 "tools": ["Javascript", "React Native", "MySQL", "Java", "Spring Boot", "Rabbit MQ", "Docker", "PHP", "HTML", "CSS", "Bizagi", "Astah", "Diagrams.net", "Scikit-learn", "Python", "PyQt"],
                 "skills": ["Trabalho em equipe"]
             },
             {
+                "id": "1",
+                "type": "research",
                 "institution": "Universidade Federal do Paraná",
                 "title": "Pesquisa",
                 "dates": {
@@ -36,8 +40,9 @@
                 "description": "Pesquisa sobre Web Scraping para obtenção de dados turísticos do Tripadvisor. Desenvolvi um Scrapper, juntamente de um artigo científico sobre o tema."
             },
             {
-                "institution": "Universidade Federal do Paraná",
+                "id": "2",
                 "type": "paper",
+                "institution": "Universidade Federal do Paraná",
                 "extra_data": {
                     "title": "Coleta de dados com Web Scraping: problemas, soluções e otimizações",
                     "magazine": "iSys"
@@ -47,18 +52,22 @@
         ],
     "professional_experiences": [
         {
-            "company": "Rede Nacional de Ensino e Pesquisa - POP Paraná",
+            "id": "6",
+            "type": "job",
+            "institution": "Rede Nacional de Ensino e Pesquisa - POP Paraná",
             "position": "Técnico de Desenvolvimento",
             "tools": ["Python", "Django", "Docker", "Linux", "Flask", "Ansible", "Git", "Postman", "API REST", "Pytest", "Redis", "Netbox", "Topdesk"],
             "skills": ["Redes de computadores", "Bots", "APIs do Telegram/Whatsapp"],
-            "description": "Após ser promovido, as atividades continuaram praticamente as mesmas. As diferenças estão na carga horário e na participação do rodízio de plantão semanal.",
+            "description": "Após ser promovido, as atividades continuaram praticamente as mesmas. As diferenças estão na carga horária e na participação do rodízio de plantão semanal.",
             "dates": {
                 "start": "01/06/2022",
                 "end": null
             }
         },
         {
-            "company": "Rede Nacional de Ensino e Pesquisa - POP Paraná",
+            "id": "5",
+            "type": "job",
+            "institution": "Rede Nacional de Ensino e Pesquisa - POP Paraná",
             "position": "Estagiário de desenvolvimento",
             "tools": ["Python", "Django", "Docker", "Linux", "Flask", "Ansible", "Git", "Postman", "API REST", "Bots", "Pytest", "Redis", "Netbox", "Topdesk"],
             "skills": ["Redes de computadores", "APIs do Telegram/Whatsapp"],
@@ -69,7 +78,9 @@
             }
         },
         {
-            "company": "Clientar CRM",
+            "id": "4",
+            "type": "job",
+            "institution": "Clientar CRM",
             "position": "Estagiário desenvolvedor Back-End",
             "tools": ["Laravel", "Mysql", "Dbeaver", "Postman", "API REST"],
             "skills": ["Desenvolvimento de Back-end", "Planejamento"],
@@ -80,7 +91,9 @@
             }
         },
         {
-            "company": "Ecomp - Empresa Júnior de Computação da UFPR",
+            "id": "3",
+            "type": "job",
+            "institution": "Ecomp - Empresa Júnior de Computação da UFPR",
             "position": "Gerente de Qualidade",
             "tools": ["Linux", "Git", "Deploy", "SSH"],
             "skills": ["Gestão de pessoas",  "Administração de sistemas", "Capacitação de novos membros"],
@@ -91,7 +104,9 @@
             }
         },
         {
-            "company": "Ecomp - Empresa Júnior de Computação da UFPR",
+            "id": "2",
+            "type": "job",
+            "institution": "Ecomp - Empresa Júnior de Computação da UFPR",
             "position": "Assessor de negócios",
             "tools": ["Scrum", "Backlog", "Funil de vendas", "Persona", "Planning Poker", "Briefing"],
             "skills": ["Planejamento de sistemas", "Comunicação com cliente", "Condução de reuniões"],
@@ -102,7 +117,9 @@
             }
         },
         {
-            "company": "Ecomp - Empresa Júnior de Computação da UFPR",
+            "id": "1",
+            "type": "job",
+            "institution": "Ecomp - Empresa Júnior de Computação da UFPR",
             "position": "Assessor de Projetos",
             "tools": ["Scrum", "Gitlab", "OBS Studio"],
             "skills": ["Resolução de problemas", "Falar em público", "Capacitação de novos membros"],
@@ -113,7 +130,9 @@
             }
         },
         {
-            "company": "Ecomp - Empresa Júnior de Computação da UFPR",
+            "id": "0",
+            "type": "job",
+            "institution": "Ecomp - Empresa Júnior de Computação da UFPR",
             "position": "Desenvolvedor Back-End",
             "tools": ["Laravel", "PHP", "MariaDB", "Git", "Scrum", "Postman", "PagSeguro", "Linux", "API REST"],
             "skills": ["Trabalhar sob pressão", "Trabalho em equipe", "Resolução de problemas"],
