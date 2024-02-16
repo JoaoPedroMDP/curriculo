@@ -6,7 +6,7 @@ import CustomDate from "./objects/date";
 function experiencesColumn(experiences: any[], title: string, bgColor: string, textColor: string, scroll: string){
     return(
         <div id="professional" className={`flex flex-col basis-1/2 justify-top align-middle py-5 px-[5vw] ${bgColor} ${textColor}`}>
-            <p className="sticky font-raleway text-[64px] text-center">{title}</p>
+            <h1 className="sticky font-raleway text-[64px] text-center">{title}</h1>
             <div className={`${scroll} scroll overflow-auto overscroll-contain max-h-[60vh] mt-10`}>
             {
                 experiences.map((exp) => 
@@ -83,8 +83,10 @@ export default async function Home() {
                 {experiencesColumn(data.professional_experiences, "Experiência profissional", "bg-darkBlue", "text-white", "light-scroll")}
                 {experiencesColumn(data.academic_experiences, "Experiência acadêmica", "bg-whiteBlue", "text-darkBlue", "dark-scroll")}
             </section>
-            <footer className="h-[20vh] flex">
-                <p className="text-center mb-10">Feito com &lt;3 por João Pedro</p>
+            <section id="achievements" className="bg-yellow flex justify-center">
+                <h1 className="text-darkBlue font-raleway pt-10 text-[64px]">Conquistas</h1>
+            </section>
+            <footer className="h-[20vh] flex justify-center">
             </footer>
         </section>
     );

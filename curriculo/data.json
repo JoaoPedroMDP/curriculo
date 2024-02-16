@@ -145,42 +145,58 @@
     ],
     "achievements": [
         {
-            "name": "Desenvolvedor destaque - ECOMP 2020",
+            "id": "0",
+            "name": "Desenvolvedor destaque",
+            "institution": "Ecomp",
             "description": "Prêmio dado ao desenvolvedor que mais se destacou no ano de 2020",
             "date": "01/12/2020"
         },
         {
-            "name": "Desenvolvedor destaque Back End - ECOMP 2020",
+            "id": "1",
+            "name": "Desenvolvedor destaque Back End",
+            "institution": "Ecomp",
             "description": "Prêmio dado ao desenvolvedor de Back End que mais se destacou no ano de 2020",
             "date": "01/12/2020"
         },
         {
-            "name": "Ecomper de Honra - ECOMP 2020",
+            "id": "2",
+            "name": "Ecomper de Honra",
+            "institution": "Ecomp",
             "description": "Prêmio dado ao membro votado como destaque de 2020",
             "date": "01/12/2020"
         },
         {
-            "name": "Membro Jim Carrey - ECOMP 2020",
+            "id": "3",
+            "name": "Membro Jim Carrey",
+            "institution": "Ecomp",
             "description": "Prêmio dado ao membro mais engraçado (espero) de 2020",
             "date": "01/12/2020"
         },
         {
-            "name": "Dream Team - ECOMP 2020",
+            "id": "4",
+            "name": "Dream Team",
+            "institution": "Ecomp",
             "description": "Prêmio dado aos integrantes do Dream Team de desenvolvedores de 2020",
             "date": "01/12/2020"
         },
         {
-            "name": "Membro Jim Carrey - ECOMP 2021",
+            "id": "5",
+            "name": "Membro Jim Carrey",
+            "institution": "Ecomp",
             "description": "Prêmio dado ao membro mais engraçado (se não for isso, me chamaram de palhaço por 2 anos seguidos) de 2021",
             "date": "01/12/2021"
         },
         {
-            "name": "Desenvolvedor 'brabo' Back End - ECOMP 2021",
+            "id": "6",
+            "name": "Desenvolvedor 'brabo' Back End",
+            "institution": "Ecomp",
             "description": "Prêmio dado ao desenvolvedor de Back End que mais se destacou no ano de 2021",
             "date": "01/12/2021"
         },
         {
-            "name": "Ecomper de Honra - ECOMP 2021",
+            "id": "7",
+            "name": "Ecomper de Honra",
+            "institution": "Ecomp",
             "description": "Prêmio dado ao membro votado como destaque de 2021",
             "date": "01/12/2021"
         }
