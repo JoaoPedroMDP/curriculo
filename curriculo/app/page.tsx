@@ -7,8 +7,8 @@ import Achievement from "./objects/achievement";
 function experiencesColumn(experiences: any[], title: string, bgColor: string, textColor: string, scroll: string){
     return(
         <div id="professional" className={`flex flex-col lg:basis-1/2 justify-top align-middle py-5 px-[5vw] ${bgColor} ${textColor}`}>
-            <h1 className="sticky font-raleway text-[64px] text-center">{title}</h1>
-            <div className={`${scroll} scroll overflow-auto overscroll-contain max-h-[60vh] mt-10`}>
+            <h1 className="sticky font-raleway text-[50px] lg:text-[64px] text-center">{title}</h1>
+            <div className={`${scroll} scroll overflow-auto max-h-[60vh] mt-10`}>
             {
                 experiences.map((exp) => 
                     <Experience key={exp.id} experience_data={exp} />)
@@ -43,7 +43,7 @@ export default async function Home() {
                 alt="Autor do currículo de touca, numa praia nublada com neblina"
                 className="absolute opacity-30 z-[-1] object-cover"
                 />
-                <div className="flex flex-col items-center xl:items-start text-center lg:text-start order-2 lg:order-1 mt-10 lg:mt-0 lg:basis-2/3">
+                <div className="flex flex-col items-center mx-5 xl:items-start text-center lg:text-start order-2 lg:order-1 mt-10 lg:mt-0 lg:basis-2/3">
                     <p className="font-bebas text-[50px] lg:text-[60px] xl:text-[70px] 2xl:text-[96px]">{data.name}</p>
                     <p className="font-raleway text-[25px] lg:text-[22px] xl:text-[28px] 2xl:text-[36px]">{data.title}</p>
                     <p className="font-raleway text-[18px] lg:text-[15px] xl:text-[18px] 2xl:text-[24px]">{data.marital_status} | {age} anos</p>
@@ -51,7 +51,7 @@ export default async function Home() {
                     <p className="font-raleway text-[18px] lg:text-[15px] xl:text-[18px] 2xl:text-[24px]"><a href={data.linkedin} target="blank">Linkedin</a> | <a href={data.github} target="blank">Github</a></p>
                 </div>
 
-                <div className="relative w-[250px] h-[250px] 2xl:w-[400px] 2xl:h-[400px] order-1 2xl:order-2">
+                <div className="relative w-[250px] h-[250px] 2xl:w-[400px] 2xl:h-[400px] 2xl:ml-20 order-1 2xl:order-2">
                     <Image 
                     className="rounded-full" 
                     src={"/author_profile.png"} 
@@ -83,10 +83,10 @@ export default async function Home() {
             </section>
             <section id="achievements" className="bg-yellow flex flex-col justify-center items-center pb-10">
                 <div className="flex flex-col items-center">
-                    <h1 className="text-darkBlue text-center font-raleway pt-10 text-[64px]">Conquistas</h1>
-                    <h2 className="text-darkBlue text-center font-medium font-raleway text-[24px]">Algumas são fruto do esforço, outras vêm de surpresa.</h2>
-                    <h2 className="text-darkBlue text-center font-medium font-raleway text-[24px]">E outras, nós nos esforçamos sem saber, por gostarmos do que fazemos, e então somos surpreendidos.</h2> 
-                    <h2 className="text-darkBlue text-center font-medium font-raleway text-[24px]">Particularmente, gosto da última opção.</h2>
+                    <h1 className="text-darkBlue text-center font-raleway pt-10 text-[50px] lg:text-[64px]">Conquistas</h1>
+                    <h2 className="text-darkBlue text-center font-medium font-raleway text-[20px] lg:text-[24px]">Algumas são fruto do esforço, outras vêm de surpresa.</h2>
+                    <h2 className="text-darkBlue text-center font-medium font-raleway text-[20px] lg:text-[24px]">E outras, nós nos esforçamos sem saber, por gostarmos do que fazemos, e então somos surpreendidos.</h2> 
+                    <h2 className="text-darkBlue text-center font-medium font-raleway text-[20px] lg:text-[24px]">Particularmente, gosto da última opção.</h2>
                 </div>
                 <div className="flex justify-center flex-wrap pt-5">
                     {
