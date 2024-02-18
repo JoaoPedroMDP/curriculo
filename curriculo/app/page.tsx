@@ -14,6 +14,10 @@ function experiencesColumn(experiences: any[], title: string, theme: string){
     return(
         <div id="professional" className={`flex flex-col lg:basis-1/2 justify-top align-middle py-5 px-[5vw] ${colorVariants[theme]["content"]}`}>
             <h1 className="sticky font-raleway text-[50px] lg:text-[64px] text-center">{title}</h1>
+            <div className="flex flex-row justify-between self-center">
+                <label htmlFor="learnableInput" className="mr-2 font-raleway">Selecione uma tecnologia ou habilidade</label>
+                <input id="learnableInput" type="select" className={`${colorVariants[theme]["input"]} rounded-md pl-2`}></input>
+            </div>
             <div className={`${scroll} scroll overflow-auto max-h-[60vh] mt-10`}>
             {
                 experiences.map((exp) => 
