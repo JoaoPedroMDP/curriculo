@@ -6,6 +6,7 @@ export default class CustomDate extends Date{
     }
 
     toMonthYear(){
-        return this.toLocaleDateString('pt-BR', {month: 'short', year: 'numeric'});
+        let full = this.toLocaleDateString('pt-BR', {month: 'long'}) + " " + this.getFullYear();
+        return full
     }
 }

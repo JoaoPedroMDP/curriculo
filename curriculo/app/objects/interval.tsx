@@ -1,10 +1,12 @@
+import CustomDate from "./customDate";
+
 export default class Interval{
     start: string
     end: string 
 
     constructor(start: string, end?: string){
-        this.start = start
-        this.end = end == null ? "Atual" : end
+        this.start = new CustomDate(start).toMonthYear();
+        this.end = end == null ? "Atual" :  new CustomDate(end).toMonthYear();
     }
 
     render(){

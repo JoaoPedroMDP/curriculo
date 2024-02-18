@@ -4,14 +4,20 @@ import Experience from "./components/experience";
 import CustomDate from "./objects/customDate";
 import Achievement from "./objects/achievement";
 
-function experiencesColumn(experiences: any[], title: string, bgColor: string, textColor: string, scroll: string){
+function experiencesColumn(experiences: any[], title: string, theme: string){
+    const colorVariants: any = {
+        dark: {content: 'bg-darkBlue text-whiteBlue', input: 'bg-whiteBlue text-darkBlue'},
+        light: {content: 'bg-whiteBlue text-darkBlue', input: 'bg-darkBlue text-whiteBlue'},
+      }
+    let scroll = theme == "dark" ? "light-scroll" : "dark-scroll"; 
+
     return(
-        <div id="professional" className={`flex flex-col lg:basis-1/2 justify-top align-middle py-5 px-[5vw] ${bgColor} ${textColor}`}>
+        <div id="professional" className={`flex flex-col lg:basis-1/2 justify-top align-middle py-5 px-[5vw] ${colorVariants[theme]["content"]}`}>
             <h1 className="sticky font-raleway text-[50px] lg:text-[64px] text-center">{title}</h1>
             <div className={`${scroll} scroll overflow-auto max-h-[60vh] mt-10`}>
             {
                 experiences.map((exp) => 
-                    <Experience key={exp.id} experience_data={exp} />)
+                    <Experience experience_data={exp} />)
             }
             </div>
         </div>
@@ -78,8 +84,8 @@ export default async function Home() {
                 </div>
             </section>
             <section id="experiences" className="flex flex-row flex-wrap justify-center m-0">
-                {experiencesColumn(data.professional_experiences, "Experiência profissional", "bg-darkBlue", "text-white", "light-scroll")}
-                {experiencesColumn(data.academic_experiences, "Experiência acadêmica", "bg-whiteBlue", "text-darkBlue", "dark-scroll")}
+                {experiencesColumn(data.professional_experiences, "Experiência profissional", "dark")}
+                {experiencesColumn(data.academic_experiences, "Experiência acadêmica", "light")}
             </section>
             <section id="achievements" className="bg-yellow flex flex-col justify-center items-center pb-10">
                 <div className="flex flex-col items-center">

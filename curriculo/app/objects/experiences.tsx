@@ -28,7 +28,7 @@ class Experience {
 
     render(): JSX.Element{
         return (
-            <div className="mt-10">
+            <div key={this.id} className="mt-10">
                 <p className="font-raleway font-bold text-[34px]">{this.institution}</p>
                     {this.renderPosition()}
                     {this.renderInterval()}
