@@ -16,7 +16,7 @@ class Learnable{
     }
 
     render(){
-        return <p key={this.id} className={`${this.bgColor} rounded-full px-2 ${this.textColor}`}>{this.name}</p>
+        return <p key={this.id} className={`${this.bgColor} rounded-full px-2 text-center ${this.textColor}`}>{this.name}</p>
     }
 }
 
@@ -24,12 +24,24 @@ class Tool extends Learnable{
     constructor(name: string){
         super(name, "tool", "bg-lightBlue", "text-darkBlue")
     }
+
+    static collectTools(tools: string[]): Tool[]{
+        return tools.map((tool) => {
+            return new Tool(tool);
+        });
+    }
 };
 
 class Skill extends Learnable{
     constructor(name: string){
         super(name, "skill", "bg-yellow", "text-darkBlue")
     }
+
+    static collectSkills(skills: string[]): Skill[]{
+        return skills.map((skill) => {
+            return new Skill(skill);
+        });
+    }
 };
 
-export { Tool, Skill }
+export { Tool, Skill, Learnable }
