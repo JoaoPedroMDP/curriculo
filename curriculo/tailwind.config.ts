@@ -14,6 +14,7 @@ const config: Config = {
       fontFamily: {
         bebas: ['"Bebas Neue"', 'sans-serif'],
         raleway: ['Raleway', 'sans-serif'],
+        goldman: ["Goldman", 'sans-serif']
       },
       colors: {
         transparent: 'transparent',

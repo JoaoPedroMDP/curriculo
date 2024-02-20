@@ -1,5 +1,6 @@
+import LearnableC from "../components/learnableC"
 import Interval from "./interval"
-import { Skill, Tool } from "./learnables"
+import { Learnable, Skill, Tool } from "./learnables"
 
 class Experience {
     id: string
@@ -9,13 +10,13 @@ class Experience {
     tools: Tool[] = []
     skills: Skill[] = []
 
-    constructor(id: string, institution: string, type: string, description: string, tools: Tool[] = [], skills: Skill[] = []) {
+    constructor(id: string, institution: string, type: string, description: string, tools: string[] = [], skills: string[] = []) {
         this.id = id
         this.institution = institution
         this.type = type
         this.description = description
-        this.tools = tools
-        this.skills = skills
+        this.tools = Tool.collectTools(tools);
+        this.skills = Skill.collectSkills(skills);
     }
 
     renderPosition(){
@@ -36,7 +37,7 @@ class Experience {
                     {this.tools.length > 0
                         ?<div className="flex flex-row flex-wrap gap-2 pt-2">
                         {this.tools.map((tool) => {
-                            return tool.render();
+                            return <LearnableC key={tool.id} learnable={tool.toObject()}/>
                         })}
                         </div>
                         : null
@@ -44,7 +45,7 @@ class Experience {
                     {this.skills.length > 0
                         ?<div className="flex flex-row flex-wrap gap-2 pt-2">
                         {this.skills.map((skill) => {
-                            return skill.render();
+                            return <LearnableC key={skill.id} learnable={skill.toObject()}/>;
                         })}
                         </div>
                         : null
@@ -59,10 +60,10 @@ class Job extends Experience {
     position: string
     interval: Interval
 
-    constructor(id: string, institution: string, position: string, interval: Interval, description: string, tools: Tool[] = [], skills: Skill[] = []) {
+    constructor(id: string, institution: string, position: string, interval: any, description: string, tools: string[] = [], skills: string[] = []) {
         super(id, institution, "job", description, tools, skills)
         this.position = position
-        this.interval = interval
+        this.interval = Interval.fromData(interval);
     }
 
     renderPosition(){
@@ -78,10 +79,10 @@ class Course extends Experience {
     name: string
     interval: Interval
 
-    constructor(id: string, institution: string, name: string, interval: Interval, description: string, tools: Tool[] = [], skills: Skill[] = []) {
+    constructor(id: string, institution: string, name: string, interval: any, description: string, tools: string[] = [], skills: string[] = []) {
         super(id, institution, "course", description, tools, skills);
         this.name = name
-        this.interval = interval
+        this.interval = Interval.fromData(interval);
     }
 
     renderPosition(){
@@ -104,4 +105,4 @@ class Paper extends Experience {
     }
 }
 
-export { Job, Course, Paper }
+export { Experience, Job, Course, Paper }

@@ -13,6 +13,10 @@
   src: url("../public/fonts/Raleway-VariableFont_wght.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: Goldman;
+  src: url("../public/fonts/Goldman-Regular.ttf") format("truetype");
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;
