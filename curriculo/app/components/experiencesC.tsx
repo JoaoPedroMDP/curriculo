@@ -16,7 +16,7 @@ export default function ExperiencesC({experiences, title, theme}: {experiences: 
 
     return(
         <div id="professional" className={`flex flex-col lg:basis-1/2 justify-top align-middle py-2 px-[5vw] ${colorVariants[theme]["content"]}`}>
-            <h1 className="sticky font-raleway text-[50px] lg:text-[64px] text-center">{title}</h1>
+            <h1 className="sticky font-raleway text-[50px] lg:text-[64px] text-center mt-2">{title}</h1>
             <div className={`${scroll} scroll overflow-auto max-h-[60vh] mt-5 ${colorVariants[theme]["border"]}`}>
             {experiences.length > 0
                 ? experiences.map((exp) => exp.render())
