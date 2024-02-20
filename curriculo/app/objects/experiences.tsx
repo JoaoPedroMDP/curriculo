@@ -1,5 +1,6 @@
+import LearnableC from "../components/learnableC"
 import Interval from "./interval"
-import { Skill, Tool } from "./learnables"
+import { Learnable, Skill, Tool } from "./learnables"
 
 class Experience {
     id: string
@@ -36,7 +37,7 @@ class Experience {
                     {this.tools.length > 0
                         ?<div className="flex flex-row flex-wrap gap-2 pt-2">
                         {this.tools.map((tool) => {
-                            return tool.render();
+                            return <LearnableC key={tool.id} learnable={tool.toObject()}/>
                         })}
                         </div>
                         : null
@@ -44,7 +45,7 @@ class Experience {
                     {this.skills.length > 0
                         ?<div className="flex flex-row flex-wrap gap-2 pt-2">
                         {this.skills.map((skill) => {
-                            return skill.render();
+                            return <LearnableC key={skill.id} learnable={skill.toObject()}/>;
                         })}
                         </div>
                         : null

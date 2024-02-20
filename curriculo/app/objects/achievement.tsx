@@ -25,7 +25,7 @@ export default class Achievement{
             className="flex flex-col items-center justify-between p-5 min-w-[20vw] 
             sm:max-w-[25vw] rounded-3xl border-[1px] shadow-2xl text-center 
             text-darkBlue hover:text-yellow border-darkBlue hover:bg-darkBlue
-            transition duration-300 ease-out m-5
+            transition-all duration-300 ease-out m-5
             ">
                 <h2 className="font-raleway font-bold text-[32px]">{this.title}</h2>
                 <p className="font-raleway text-[24px]">{this.description}</p>

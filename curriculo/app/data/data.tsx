@@ -1,4 +1,4 @@
-{
+const curriculumData: any = {
     "name": "João Pedro Martins de Paula",
     "birth_date": "13/03/2000",
     "sex": "Masculino",
@@ -202,3 +202,5 @@
         }
     ]
 }
+
+export default curriculumData;
