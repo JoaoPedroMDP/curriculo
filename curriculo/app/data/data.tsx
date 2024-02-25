@@ -24,29 +24,28 @@ const curriculumData: any = {
                 },
                 "description": "Demorei mais do que o período mínimo para cursar, mas participei de empresa júnior, iniciação científica, estagiei, participei do centro acadêmico e tirei boas notas. Me orgulho de minha trajetória acadêmica. E desejo continuá-la.",
                 "tools": ["Javascript", "React Native", "MySQL", "Java", "Spring Boot", "Rabbit MQ", "Docker", "PHP", "HTML", "CSS", "Bizagi", "Astah", "Diagrams.net", "Scikit-learn", "Python", "PyQt"],
-                "skills": ["Trabalho em equipe"]
+                "skills": ["Trabalho em equipe"],
+                "level": "Graduação"
             },
             {
                 "id": "1",
                 "type": "research",
                 "institution": "Universidade Federal do Paraná",
-                "title": "Pesquisa",
+                "subject": "Web Scraping",
                 "dates": {
                     "start": "01/09/2022",
                     "end": "01/09/2023"
                 },
                 "tools": ["Python", "Selenium", "Docker"],
-                "skills": ["Escrita acadêmica"],
                 "description": "Pesquisa sobre Web Scraping para obtenção de dados turísticos do Tripadvisor. Desenvolvi um Scrapper, juntamente de um artigo científico sobre o tema."
             },
             {
                 "id": "2",
                 "type": "paper",
                 "institution": "Universidade Federal do Paraná",
-                "extra_data": {
-                    "title": "Coleta de dados com Web Scraping: problemas, soluções e otimizações",
-                    "magazine": "iSys"
-                },
+                "title": "Coleta de dados com Web Scraping: problemas, soluções e otimizações",
+                "magazine": "iSys",
+                "skills": ["Escrita acadêmica"],
                 "description": "Artigo científico sobre Web Scraping, com foco nos problemas que foram enfrentados no processo e como os resolvi. Publicado na revista iSys"
             }
         ],
@@ -55,7 +54,7 @@ const curriculumData: any = {
             "id": "6",
             "type": "job",
             "institution": "Rede Nacional de Ensino e Pesquisa - POP Paraná",
-            "position": "Técnico de Desenvolvimento",
+            "position": "Técnico de desenvolvimento",
             "tools": ["Python", "Django", "Docker", "Linux", "Flask", "Ansible", "Git", "Postman", "API REST", "Pytest", "Redis", "Netbox", "Topdesk"],
             "skills": [],
             "description": "Após ser promovido, as atividades continuaram praticamente as mesmas. As diferenças estão na carga horária e na participação do rodízio de plantão semanal.",

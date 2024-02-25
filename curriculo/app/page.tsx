@@ -2,7 +2,7 @@
 import Image from "next/image";
 import CustomDate from "./objects/customDate";
 import Achievement from "./objects/achievement";
-import { Course, Job, Paper } from "./objects/experiences";
+import { Course, Job, Paper, Research } from "./objects/experiences";
 import {Experience} from "./objects/experiences";
 import { Learnable } from "./objects/learnables";
 import LearnableC from "./components/learnableC";
@@ -62,7 +62,18 @@ function getAcademicExperiences(academicExperiences: any[]){
             return new Course(
                 exp.id,
                 exp.institution,
-                exp.name,
+                exp.title,
+                exp.dates,
+                exp.description,
+                exp.level,
+                exp.tools,
+                exp.skills
+            );
+        }else if(exp.type == "research"){
+            return new Research(
+                exp.id,
+                exp.institution,
+                exp.subject,
                 exp.dates,
                 exp.description,
                 exp.tools,
@@ -74,7 +85,9 @@ function getAcademicExperiences(academicExperiences: any[]){
                 exp.institution,
                 exp.title,
                 exp.dates,
-                exp.description
+                exp.description,
+                exp.magazine,
+                exp.skills
             );
         }
     });
@@ -159,23 +172,6 @@ export default function Home() {
                     />
                 </div>
             </section>
-            <section id="introduction" className="py-20 px-[15vw] flex flex-row flex-wrap justify-center lg:justify-between items-center">
-                <div id="textual-introduction" className="flex flex-col gap-5 mt-10 lg:mt-0 order-2 lg:order-1 lg:basis-2/3">
-                    {
-                        curriculumData.description.map((desc: {id: string, text: string}) => {
-                            return <p key={desc.id} className="font-raleway text-[20px]">{desc.text}</p>
-                        })
-                    }
-                </div>
-                <div className="relative w-[200px] h-[200px] order-1 lg:order-2">
-                    <Image
-                    className="rounded-full"
-                    src={"/baby_author.png"}
-                    fill
-                    alt="Foto do autor quando bebê"
-                    />
-                </div>
-            </section>
             <section id="experiences" className="flex flex-row flex-wrap justify-center m-0">
                 <div id="stack" className="flex flex-col justify-between items-center relative min-h-[60vh]">
                     <Image  
@@ -225,6 +221,23 @@ export default function Home() {
                             return a.render();
                         })
                     }
+                </div>
+            </section>
+            <section id="introduction" className="py-20 px-[15vw] flex flex-row flex-wrap justify-center lg:justify-between items-center">
+                <div id="textual-introduction" className="flex flex-col gap-5 mt-10 lg:mt-0 order-2 lg:order-1 lg:basis-2/3">
+                    {
+                        curriculumData.description.map((desc: {id: string, text: string}) => {
+                            return <p key={desc.id} className="font-raleway text-[20px]">{desc.text}</p>
+                        })
+                    }
+                </div>
+                <div className="relative w-[200px] h-[200px] order-1 lg:order-2">
+                    <Image
+                    className="rounded-full"
+                    src={"/baby_author.png"}
+                    fill
+                    alt="Foto do autor quando bebê"
+                    />
                 </div>
             </section>
             <footer className="h-[20vh] flex justify-center">

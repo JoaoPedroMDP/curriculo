@@ -15,7 +15,7 @@ export default function ExperiencesC({experiences, title, theme}: {experiences: 
     let scroll = theme == "dark" ? "light-scroll" : "dark-scroll"; 
 
     return(
-        <div id="professional" className={`flex flex-col lg:basis-1/2 justify-top align-middle py-2 px-[5vw] ${colorVariants[theme]["content"]}`}>
+        <div className={`flex flex-col lg:basis-1/2 justify-top align-middle py-1 px-[3vw] ${colorVariants[theme]["content"]}`}>
             <h1 className="sticky font-raleway text-[50px] lg:text-[64px] text-center mt-2">{title}</h1>
             <div className={`${scroll} scroll overflow-auto max-h-[60vh] mt-5 ${colorVariants[theme]["border"]}`}>
             {experiences.length > 0
