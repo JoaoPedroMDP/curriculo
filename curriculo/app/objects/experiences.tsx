@@ -139,7 +139,7 @@ class Paper extends Experience {
     renderHeaders(){
         return(
             <>
-                <p className="font-raleway font-bold text-[28px]">Artigo: "{this.title}"</p>
+                <p className="font-raleway font-bold text-[28px]">Artigo: &quot;{this.title}&quot;</p>
                 <p className="font-raleway text-[24px]">Revista {this.magazine}. {
                     this.publication_date 
                     ? `Publicado em ${this.publication_date}.`
