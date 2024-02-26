@@ -178,11 +178,11 @@ export default function Home() {
                     src={"/neo.png"} 
                     fill
                     style={{top: 0}}
-                    alt="Foto do autor quando for mais velho (tomara)... Mentira, é apenas Neo, de Matrix."
+                    alt="Foto do autor quando for mais velho (quem dera)... Mentira, é apenas Neo, de Matrix."
                     className="relative z-[-1] opacity-60 object-top object-cover"
                     />
                     <p className="font-goldman text-center font-bold text-[40px] lg:mt-10">Stack</p>
-                    <div className="flex lg:flex-row justify-between px-5 lg:px-10 gap-5">
+                    <div className="flex lg:flex-row flex-wrap justify-between px-5 lg:px-10 gap-5">
                         <div className="flex flex-col flex-wrap mt-5 lg:mt-10">
                             <h2 className="font-goldman text-center text-[30px]">Hard skills</h2>
                             <div className="flex flex-row flex-wrap justify-center gap-2">

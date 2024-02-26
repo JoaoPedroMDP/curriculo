@@ -1,7 +1,7 @@
 import { JSX } from "react"
 import LearnableC from "../components/learnableC"
 import Interval from "./interval"
-import { Learnable, Skill, Tool } from "./learnables"
+import { Skill, Tool } from "./learnables"
 
 class Experience {
     id: string
@@ -97,7 +97,7 @@ class Course extends Experience {
     }
 
     renderPosition(){
-        return <p className="font-raleway font-bold text-[28px]">{this.level +": "+ this.name}</p>;
+        return <p className="font-raleway font-bold text-[28px]">{this.level + ': '+ this.name}</p>;
     }
 
     renderInterval(){
