@@ -1,23 +1,62 @@
 import { JSX } from "react"
-import LearnableC from "../components/learnableC"
 import Interval from "./interval"
 import { Skill, Tool } from "./learnables"
+
+class ExpBuilder{
+    static build(data: any): Experience{
+        let experience: Experience;
+        switch(data.type){
+            case "job":
+                experience = Job.fromData(data);
+                break;
+            case "course":
+                experience = Course.fromData(data);
+                break;
+            case "research":
+                experience = Research.fromData(data);
+                break;
+            case "paper":
+                experience = Paper.fromData(data);
+                break;
+            default:
+                experience = Experience.fromData(data);
+                break;
+        }
+        return experience;
+    }
+
+    static buildAll(data: any[]): Experience[]{
+        let experiences: Experience[] = [];
+        data.forEach((experienceData) => {
+            experiences.push(ExpBuilder.build(experienceData));
+        });
+        return experiences;
+    }
+}
 
 class Experience {
     id: string
     institution: string
     type: string
     description: string
+    raw_tools: string[] = []
+    raw_skills: string[] = []
     tools: Tool[] = []
     skills: Skill[] = []
-
-    constructor(id: string, institution: string, type: string, description: string, tools: string[] = [], skills: string[] = []) {
+    constructor({id, institution, type, description, raw_tools, raw_skills}: Experience) {
         this.id = id
         this.institution = institution
         this.type = type
         this.description = description
-        this.tools = Tool.collectTools(tools);
-        this.skills = Skill.collectSkills(skills);
+        this.raw_tools = raw_tools
+        this.raw_skills = raw_skills
+
+        this.tools = Tool.collectTools(this.raw_tools);
+        this.skills = Skill.collectSkills(this.raw_skills);
+    }
+
+    static fromData(data: any){
+        return new Experience(data);
     }
 
     renderPosition(){
@@ -42,24 +81,7 @@ class Experience {
             <div key={this.id} className="mt-10">
                 <p className="font-raleway font-bold text-[34px]">{this.institution}</p>
                 {this.renderHeaders()}
-                    
-                    {this.tools.length > 0
-                        ?<div className="flex flex-row flex-wrap gap-2 pt-2">
-                        {this.tools.map((tool) => {
-                            return <LearnableC key={tool.id} learnable={tool.toObject()}/>
-                        })}
-                        </div>
-                        : null
-                    }
-                    {this.skills.length > 0
-                        ?<div className="flex flex-row flex-wrap gap-2 pt-2">
-                        {this.skills.map((skill) => {
-                            return <LearnableC key={skill.id} learnable={skill.toObject()}/>;
-                        })}
-                        </div>
-                        : null
-                    }
-                {/* <p className="pt-5 text-[20px]">{this.description}</p> */}
+                <p className="pt-5 text-[20px]">{this.description}</p>
             </div>
         );
     }
@@ -69,8 +91,9 @@ class Job extends Experience {
     position: string
     interval: Interval
 
-    constructor(id: string, institution: string, position: string, interval: any, description: string, tools: string[] = [], skills: string[] = []) {
-        super(id, institution, "job", description, tools, skills)
+    constructor({position, interval, ...experience}: Job & Experience) {
+        experience.type = "job"
+        super(experience as Experience)
         this.position = position
         this.interval = Interval.fromData(interval);
     }
@@ -89,8 +112,9 @@ class Course extends Experience {
     interval: Interval
     level: string
 
-    constructor(id: string, institution: string, name: string, interval: any, description: string, level: string, tools: string[] = [], skills: string[] = []) {
-        super(id, institution, "course", description, tools, skills);
+    constructor({name, interval, level, ...experience}: Course & Experience) {
+        experience.type = "course";
+        super(experience as Experience);
         this.name = name;
         this.interval = Interval.fromData(interval);
         this.level = level;
@@ -109,8 +133,9 @@ class Research extends Experience {
     subject: string
     interval: Interval
 
-    constructor(id: string, institution: string, subject: string, interval: any, description: string, tools: string[] = [], skills: string[] = []) {
-        super(id, institution, "research", description, tools, skills);
+    constructor({subject, interval, ...experience}: Research & Experience) {
+        experience.type = "research";
+        super(experience as Experience);
         this.subject = subject
         this.interval = Interval.fromData(interval);
     }
@@ -129,8 +154,9 @@ class Paper extends Experience {
     publication_date: string
     magazine: string
 
-    constructor(id: string, institution: string, title: string, publication_date: string, description: string, magazine: string, skills: string[] = []) {
-        super(id, institution, "paper", description, [], skills)
+    constructor({title, publication_date, magazine, ...experience}: Paper & Experience) {
+        experience.type = "paper";
+        super(experience as Experience);
         this.title = title
         this.publication_date = publication_date
         this.magazine = magazine
@@ -150,4 +176,4 @@ class Paper extends Experience {
     }
 }
 
-export { Experience, Job, Course, Research, Paper }
+export { ExpBuilder, Experience, Job, Course, Research, Paper }
