@@ -7,19 +7,19 @@ class ExpBuilder{
         let experience: Experience;
         switch(data.type){
             case "job":
-                experience = Job.fromData(data);
+                experience = new Job(data);
                 break;
             case "course":
-                experience = Course.fromData(data);
+                experience = new Course(data);
                 break;
             case "research":
-                experience = Research.fromData(data);
+                experience = new Research(data);
                 break;
             case "paper":
-                experience = Paper.fromData(data);
+                experience = new Paper(data);
                 break;
             default:
-                experience = Experience.fromData(data);
+                experience = new Experience(data);
                 break;
         }
         return experience;
@@ -36,23 +36,24 @@ class ExpBuilder{
 
 class Experience {
     id: string
-    institution: string
     type: string
     description: string
-    raw_tools: string[] = []
-    raw_skills: string[] = []
-    tools: Tool[] = []
-    skills: Skill[] = []
-    constructor({id, institution, type, description, raw_tools, raw_skills}: Experience) {
+    tools?: Tool[] = []
+    skills?: Skill[] = []
+
+    constructor({id, type, description, tools, skills}: Experience) {
         this.id = id
-        this.institution = institution
         this.type = type
         this.description = description
-        this.raw_tools = raw_tools
-        this.raw_skills = raw_skills
+        // Essee 'as unknown as string[]' é uma gambiarra para contornar o erro de tipagem. 
+        // No construtor sempre vem como string, mas não queria criar uma tipagem enorme aqui no objeto.
+        if(tools != undefined){
+            this.tools = Tool.collectTools(tools as unknown as string[]);
+        }
 
-        this.tools = Tool.collectTools(this.raw_tools);
-        this.skills = Skill.collectSkills(this.raw_skills);
+        if(skills != undefined){
+            this.skills = Skill.collectSkills(skills as unknown as string[]);
+        }
     }
 
     static fromData(data: any){
@@ -78,8 +79,7 @@ class Experience {
 
     render(): JSX.Element{
         return (
-            <div key={this.id} className="mt-10">
-                <p className="font-raleway font-bold text-[34px]">{this.institution}</p>
+            <div>
                 {this.renderHeaders()}
                 <p className="pt-5 text-[20px]">{this.description}</p>
             </div>

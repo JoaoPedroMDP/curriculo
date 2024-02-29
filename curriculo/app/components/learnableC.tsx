@@ -8,7 +8,7 @@ export default function LearnableC({learnable}: {learnable: any, onClickHandler?
     return (
     <div className={`group flex flex-grow justify-center transition-color duration-200 hover:bg-darkBlue p-5`}>
         <p 
-        className={`${themeCustomization} ${underlineConfig} ${textConfig} w-min transition-color duration-300 cursor-pointer`}
+        className={`${themeCustomization} ${underlineConfig} ${textConfig} text-[18px] w-min transition-color duration-300 cursor-pointer`}
         >
             {learnable.name}
         </p>

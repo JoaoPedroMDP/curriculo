@@ -1,9 +1,9 @@
-import { Learnable, Skill, Tool } from "../../objects/learnables";
+import { Skill, Tool } from "../../objects/learnables";
 import LearnableC from "../learnableC";
 
 
-export default function Learnables({skills, tools}: 
-    {skills: Skill[], tools: Tool[], learnableFilters: string[], updateLearnablesFilter: any})
+export default function LearnablesSection({skills, tools}: 
+    {skills: Skill[], tools: Tool[]})
 {
 
     return(

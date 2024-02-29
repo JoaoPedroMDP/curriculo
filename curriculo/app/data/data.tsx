@@ -16,12 +16,12 @@ const curriculumData: any = {
     ],
     "academic_experiences": [
             {
-                "institution": "Universidade Federal do Paraná",
+                "name": "Universidade Federal do Paraná",
                 "experiences": [
                     {"id": "0",
                     "type": "course",
                     "title": "Tecnologia em análise e desenvolvimento de sistemas",
-                    "dates": {
+                    "interval": {
                         "start": "01/01/2020",
                         "end": "31/12/2024"
                     },
@@ -33,9 +33,8 @@ const curriculumData: any = {
                 {
                     "id": "1",
                     "type": "research",
-                    "institution": "Universidade Federal do Paraná",
                     "subject": "Web Scraping",
-                    "dates": {
+                    "interval": {
                         "start": "01/09/2022",
                         "end": "01/09/2023"
                     },
@@ -45,7 +44,6 @@ const curriculumData: any = {
                 {
                     "id": "2",
                     "type": "paper",
-                    "institution": "Universidade Federal do Paraná",
                     "title": "Coleta de dados com Web Scraping: problemas, soluções e otimizações",
                     "magazine": "iSys",
                     "skills": ["Escrita acadêmica"],
@@ -56,7 +54,7 @@ const curriculumData: any = {
         ],
     "professional_experiences": [
         {
-            "institution": "Rede Nacional de Ensino e Pesquisa - POP Paraná",
+            "name": "Rede Nacional de Ensino e Pesquisa - POP Paraná",
             "experiences": [
                 {
                     "id": "6",
@@ -65,9 +63,9 @@ const curriculumData: any = {
                     "tools": ["Python", "Django", "Docker", "Linux", "Flask", "Ansible", "Git", "Postman", "API REST", "Pytest", "Redis", "Netbox", "Topdesk"],
                     "skills": [],
                     "description": "Após ser promovido, as atividades continuaram praticamente as mesmas. As diferenças estão na carga horária e na participação do rodízio de plantão semanal.",
-                    "dates": {
+                    "interval": {
                         "start": "01/06/2022",
-                        "end": null
+                        "end": "01/06/2022"
                     }
                 },
                 {
@@ -77,7 +75,7 @@ const curriculumData: any = {
                     "tools": ["Python", "Django", "Docker", "Linux", "Flask", "Ansible", "Git", "Postman", "API REST", "Bots", "Pytest", "Redis", "Netbox", "Topdesk"],
                     "skills": ["Coleta de Requisitos", "Desenvolvimento de sistemas", "Planejamento de sistemas", "Gestão de projetos"],
                     "description": "Desenvolvimento de vários scripts de automação com Python, bem como bots para Telegram/Whatsapp que agilizam a resolução de incidentes e a comunicação com as universidades parceiras. Integrei diversos serviços nos bots, como o Topdesk (Gerenciamento de Tickets), Netbox (Gerenciamento de recursos de Rede) e Icinga (Monitoramento de rede).",
-                    "dates": {
+                    "interval": {
                         "start": "04/10/2021",
                         "end": "01/06/2022"
                     }
@@ -85,7 +83,7 @@ const curriculumData: any = {
             ]
         },
         {
-            "institution": "Clientar CRM",
+            "name": "Clientar CRM",
             "experiences": [
                 {
                     "id": "4",
@@ -94,7 +92,7 @@ const curriculumData: any = {
                     "tools": ["Laravel", "Mysql", "Dbeaver", "Postman", "API REST", "Back-end"],
                     "skills": ["Planejamento de sistemas"],
                     "description": "Desenvolvimento de back-end para um sistema de CRM. Utilizei Laravel e MySQL. Supervisionado nos 4 primeiros meses, aprendi Clean Code e maneiras mais robustas de se organizar o código. Depois, meu supervisor saiu e fiquei sozinho no desenvolvimento da API. Planejei e comecei o desenvolvimento de um módulo de versionamento de orçamentos e impostos.",
-                    "dates": {
+                    "interval": {
                         "start": "11/01/2021",
                         "end": "10/09/2021"
                     }
@@ -102,7 +100,7 @@ const curriculumData: any = {
             ]
         },
         {
-            "institution": "Ecomp - Empresa Júnior de Computação da UFPR",
+            "name": "Ecomp - Empresa Júnior de Computação da UFPR",
             "experiences": [
                 {
                     "id": "3",
@@ -111,7 +109,7 @@ const curriculumData: any = {
                     "tools": ["Linux", "Git", "Deploy", "SSH"],
                     "skills": ["Gestão de pessoas",  "Administração de sistemas", "Condução de reuniões", "Capacitação de novos membros"],
                     "description": "Responsável por realizar deploy de aplicações em servidores na nuvem. Gestão de pessoas, planejamento de OKR's. Fui para Qualidade pois a diretoria passou por uma crise e ficou praticamente sem membros, ficando apenas eu e outra pessoa. Preparamos um plano de reestruturação da diretoria e conseguimos terminar 2021 com o prêmio de Diretoria do Ano.",
-                    "dates": {
+                    "interval": {
                         "start": "01/09/2021",
                         "end": "01/06/2022"
                     }
@@ -123,7 +121,7 @@ const curriculumData: any = {
                     "tools": ["Scrum", "Backlog", "Funil de vendas", "Persona"],
                     "skills": ["Planejamento de sistemas", "Comunicação com cliente", "Condução de reuniões", "Planning Poker", "Briefing"],
                     "description": "Responsável por entrar em contato com potenciais clientes ('leads') (prospecção passiva por meio de Google Ads), realizar reuniões de briefing, montar documento de funcionalidades para revisão do cliente, conduzir reuniões de Planning Poker com os desenvolvedores. Também fui P.O de um projeto em andamento com mestrandas de Enfermagem, cujos produtos finais foram 5 aplicativos que atualmente se encontram na Play/App store do Governo Federal.",
-                    "dates": {
+                    "interval": {
                         "start": "01/01/2021",
                         "end": "31/08/2020"
                     }
@@ -135,7 +133,7 @@ const curriculumData: any = {
                     "tools": ["Scrum", "Gitlab", "OBS Studio"],
                     "skills": ["Resolução de problemas", "Falar em público", "Capacitação de novos membros", "Inovação"],
                     "description": "Responsável por auxiliar na gestão de projetos, procurando por melhorias e otimizações no processo de desenvolvimento de software. Também responsável pela capacitação de novos membros (Realizei 03 capacitações ao longo de toda a minha estadia na empresa)",
-                    "dates": {
+                    "interval": {
                         "start": "01/04/2020",
                         "end": "31/12/2020"
                     }
@@ -147,7 +145,7 @@ const curriculumData: any = {
                     "tools": ["Laravel", "PHP", "MariaDB", "Git", "Scrum", "Postman", "PagSeguro", "Linux", "API REST", "Back-end"],
                     "skills": ["Trabalhar sob pressão", "Trabalho em equipe", "Planejamento de sistemas"],
                     "description": "Responsável por desenvolver back-ends. Participei de quase todos os projetos dentro da empresa, tanto aqueles aos quais fui alocado, quanto outros projetos que precisavam de ajuda.",
-                    "dates": {
+                    "interval": {
                         "start": "01/04/2020",
                         "end": "01/06/2022"
                     }
@@ -157,7 +155,7 @@ const curriculumData: any = {
     ],
     "achievements": [
         {
-            "institution": "Ecomp",
+            "name": "Ecomp",
             "achievements": [
                 {
                     "id": "0",

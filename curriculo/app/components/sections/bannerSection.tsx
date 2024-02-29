@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import CustomDate from '../../objects/customDate';
 
-export default function Banner({curriculumData}: {curriculumData: any}){
+export default function BannerSection({curriculumData}: {curriculumData: any}){
     let user = curriculumData.user;
 
     function computeAge(birth_date: Date){
