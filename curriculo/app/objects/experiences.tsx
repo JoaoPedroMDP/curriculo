@@ -60,12 +60,12 @@ class Experience {
         return new Experience(data);
     }
 
-    renderPosition(){
-        return <></>;
+    renderPosition(position: string = ""){
+        return <p className="font-raleway font-bold text-[18px] sm:text-[28px]">{position}</p>;
     }
 
-    renderInterval(){
-        return <></>;
+    renderInterval(interval: string = ""){
+        return <p className="font-raleway text-[17px] sm:text-[20px]">{interval}</p>;
     }
 
     renderHeaders(){
@@ -79,9 +79,9 @@ class Experience {
 
     render(): JSX.Element{
         return (
-            <div>
+            <div className="my-5">
                 {this.renderHeaders()}
-                <p className="pt-5 text-[20px]">{this.description}</p>
+                <p className="pt-2 text-[15px] sm:text-[20px]">{this.description}</p>
             </div>
         );
     }
@@ -98,12 +98,12 @@ class Job extends Experience {
         this.interval = Interval.fromData(interval);
     }
 
-    renderPosition(){
-        return <p className="font-raleway font-bold text-[28px]">{this.position}</p>;
+    renderPosition(position: string = ""){
+        return super.renderPosition(this.position);
     }
 
-    renderInterval(){
-        return <p className="font-raleway text-[24px]">{this.interval.render()}</p>;
+    renderInterval(interval: string = ""){
+        return super.renderInterval(this.interval.render());
     }
 }
 
@@ -120,12 +120,12 @@ class Course extends Experience {
         this.level = level;
     }
 
-    renderPosition(){
-        return <p className="font-raleway font-bold text-[28px]">{this.level + ': '+ this.name}</p>;
+    renderPosition(position: string = ""){
+        return super.renderPosition(this.level + ': '+ this.name);
     }
 
-    renderInterval(){
-        return <p className="font-raleway text-[24px]">{this.interval.render()}</p>;
+    renderInterval(interval: string = ""){
+        return super.renderInterval(this.interval.render());
     }
 }
 
@@ -140,12 +140,12 @@ class Research extends Experience {
         this.interval = Interval.fromData(interval);
     }
 
-    renderPosition(){
-        return <p className="font-raleway font-bold text-[28px]">Pesquisa sobre {this.subject}</p>;
+    renderPosition(position: string = ""){
+        return super.renderPosition("Pesquisa sobre " + this.subject);
     }
 
-    renderInterval(){
-        return <p className="font-raleway text-[24px]">{this.interval.render()}</p>;
+    renderInterval(interval: string = ""){
+        return super.renderInterval(this.interval.render());
     }
 }
 
@@ -162,17 +162,12 @@ class Paper extends Experience {
         this.magazine = magazine
     }
 
-    renderHeaders(){
-        return(
-            <>
-                <p className="font-raleway font-bold text-[28px]">Artigo: &quot;{this.title}&quot;</p>
-                <p className="font-raleway text-[24px]">Revista {this.magazine}. {
-                    this.publication_date 
-                    ? `Publicado em ${this.publication_date}.`
-                    : "Em revisão."
-                    }</p>
-            </>
-        );
+    renderPosition(position?: string): JSX.Element {
+        return super.renderPosition(`Artigo: "${this.title}"`);
+    }
+
+    renderInterval(interval?: string): JSX.Element {
+        return super.renderInterval(`Revista ${this.magazine}. ${this.publication_date ? `Publicado em ${this.publication_date}.` : "Em revisão."}`);
     }
 }
 

@@ -12,8 +12,8 @@ export default function Home() {
     return(
         <section id="site" className="flex flex-col">
             <BannerSection curriculumData={curriculumData}/>
-            <LearnablesSection tools={tools} skills={skills}/>
             <ExperiencesSection professionalExperiences={curriculumData.professional_experiences} academicExperiences={curriculumData.academic_experiences} />
+            <LearnablesSection tools={tools} skills={skills}/>
         </section>
     );
 }

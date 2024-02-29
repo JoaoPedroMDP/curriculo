@@ -1,10 +1,12 @@
 import { ExpBuilder, Experience } from "./experiences";
 
 class Institution {
+    id: string
     name: string;
     experiences: Experience[] | any[] = [];
 
-    constructor({name, experiences}: Institution){
+    constructor({id, name, experiences}: Institution){
+        this.id = id;
         this.name = name;
         this.experiences = ExpBuilder.buildAll(experiences);
     }
