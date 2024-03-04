@@ -69,6 +69,7 @@ a {
 .light-scroll::-webkit-scrollbar-thumb{
   @apply bg-whiteBlue;
 }
+
 .dark-scroll::-webkit-scrollbar-thumb{
   @apply bg-darkBlue;
 }

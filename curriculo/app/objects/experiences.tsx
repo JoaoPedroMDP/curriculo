@@ -1,152 +1,146 @@
 import { JSX } from "react"
-import LearnableC from "../components/learnableC"
 import Interval from "./interval"
 import { Skill, Tool } from "./learnables"
+import HasDate from "./base/hasDate"
 
-class Experience {
+
+class Experience extends HasDate{
     id: string
-    institution: string
     type: string
     description: string
-    tools: Tool[] = []
-    skills: Skill[] = []
+    tools?: Tool[] = []
+    skills?: Skill[] = []
+    start: string
 
-    constructor(id: string, institution: string, type: string, description: string, tools: string[] = [], skills: string[] = []) {
+    constructor({id, type, start, description, tools, skills}: Experience) {
+        super();
         this.id = id
-        this.institution = institution
         this.type = type
         this.description = description
-        this.tools = Tool.collectTools(tools);
-        this.skills = Skill.collectSkills(skills);
+        this.start = start;
+        // Essee 'as unknown as string[]' é uma gambiarra para contornar o erro de tipagem. 
+        // No construtor sempre vem como string, mas não queria criar uma tipagem enorme aqui no objeto.
+        if(tools != undefined){
+            this.tools = Tool.collectTools(tools as unknown as string[]);
+        }
+
+        if(skills != undefined){
+            this.skills = Skill.collectSkills(skills as unknown as string[]);
+        }
     }
 
-    renderPosition(){
-        return <></>;
+    static fromData(data: any){
+        return new Experience(data);
     }
 
-    renderInterval(){
-        return <></>;
+    renderPosition(position: string = ""){
+        return <p className="font-raleway font-bold text-[18px] sm:text-[28px]">{position}</p>;
+    }
+
+    renderDates(interval: string = ""){
+        return <p className="font-raleway italic text-[17px] sm:text-[20px]">{interval}</p>;
     }
 
     renderHeaders(){
         return (
             <>
             {this.renderPosition()}
-            {this.renderInterval()}
+            {this.renderDates()}
             </>
         );
     }
 
     render(): JSX.Element{
         return (
-            <div key={this.id} className="mt-10">
-                <p className="font-raleway font-bold text-[34px]">{this.institution}</p>
+            <div className="my-3">
                 {this.renderHeaders()}
-                    
-                    {this.tools.length > 0
-                        ?<div className="flex flex-row flex-wrap gap-2 pt-2">
-                        {this.tools.map((tool) => {
-                            return <LearnableC key={tool.id} learnable={tool.toObject()}/>
-                        })}
-                        </div>
-                        : null
-                    }
-                    {this.skills.length > 0
-                        ?<div className="flex flex-row flex-wrap gap-2 pt-2">
-                        {this.skills.map((skill) => {
-                            return <LearnableC key={skill.id} learnable={skill.toObject()}/>;
-                        })}
-                        </div>
-                        : null
-                    }
-                {/* <p className="pt-5 text-[20px]">{this.description}</p> */}
+                <p className="pt-2 text-[15px] sm:text-[20px]">{this.description}</p>
             </div>
         );
     }
+
+
 }
 
 class Job extends Experience {
     position: string
-    interval: Interval
+    end: string
 
-    constructor(id: string, institution: string, position: string, interval: any, description: string, tools: string[] = [], skills: string[] = []) {
-        super(id, institution, "job", description, tools, skills)
-        this.position = position
-        this.interval = Interval.fromData(interval);
+    constructor({position, end, ...experience}: Job & Experience) {
+        experience.type = "job";
+        super(experience as Experience);
+        this.position = position;
+        this.end = end;
     }
 
-    renderPosition(){
-        return <p className="font-raleway font-bold text-[28px]">{this.position}</p>;
+    renderPosition(position: string = ""){
+        return super.renderPosition(this.position);
     }
 
-    renderInterval(){
-        return <p className="font-raleway text-[24px]">{this.interval.render()}</p>;
+    renderDates(interval: string = ""){
+        return super.renderDates(new Interval(this.start, this.end).render());
     }
 }
 
 class Course extends Experience {
     name: string
-    interval: Interval
+    end: string
     level: string
 
-    constructor(id: string, institution: string, name: string, interval: any, description: string, level: string, tools: string[] = [], skills: string[] = []) {
-        super(id, institution, "course", description, tools, skills);
+    constructor({name, end, level, ...experience}: Course & Experience) {
+        experience.type = "course";
+        super(experience as Experience);
         this.name = name;
-        this.interval = Interval.fromData(interval);
+        this.end = end;
         this.level = level;
     }
 
-    renderPosition(){
-        return <p className="font-raleway font-bold text-[28px]">{this.level + ': '+ this.name}</p>;
+    renderPosition(position: string = ""){
+        return super.renderPosition(this.level + ': '+ this.name);
     }
 
-    renderInterval(){
-        return <p className="font-raleway text-[24px]">{this.interval.render()}</p>;
+    renderDates(interval: string = ""){
+        return super.renderDates(new Interval(this.start, this.end).render());
     }
 }
 
 class Research extends Experience {
     subject: string
-    interval: Interval
+    end: string
 
-    constructor(id: string, institution: string, subject: string, interval: any, description: string, tools: string[] = [], skills: string[] = []) {
-        super(id, institution, "research", description, tools, skills);
+    constructor({subject, end, ...experience}: Research & Experience) {
+        experience.type = "research";
+        super(experience as Experience);
         this.subject = subject
-        this.interval = Interval.fromData(interval);
+        this.end = end;
     }
 
-    renderPosition(){
-        return <p className="font-raleway font-bold text-[28px]">Pesquisa sobre {this.subject}</p>;
+    renderPosition(position: string = ""){
+        return super.renderPosition("Pesquisa sobre " + this.subject);
     }
 
-    renderInterval(){
-        return <p className="font-raleway text-[24px]">{this.interval.render()}</p>;
+    renderDates(interval: string = ""){
+        return super.renderDates(new Interval(this.start, this.end).render());
     }
 }
 
 class Paper extends Experience {
     title: string
-    publication_date: string
     magazine: string
 
-    constructor(id: string, institution: string, title: string, publication_date: string, description: string, magazine: string, skills: string[] = []) {
-        super(id, institution, "paper", description, [], skills)
-        this.title = title
-        this.publication_date = publication_date
-        this.magazine = magazine
+    constructor({title, magazine, ...experience}: Paper & Experience) {
+        experience.type = "paper";
+        super(experience as Experience);
+        this.title = title;
+        this.magazine = magazine;
     }
 
-    renderHeaders(){
-        return(
-            <>
-                <p className="font-raleway font-bold text-[28px]">Artigo: &quot;{this.title}&quot;</p>
-                <p className="font-raleway text-[24px]">Revista {this.magazine}. {
-                    this.publication_date 
-                    ? `Publicado em ${this.publication_date}.`
-                    : "Em revisão."
-                    }</p>
-            </>
-        );
+    renderPosition(position?: string): JSX.Element {
+        return super.renderPosition(`Artigo: "${this.title}"`);
+    }
+
+    renderDates(interval?: string): JSX.Element {
+        return super.renderDates(`Revista ${this.magazine}. ${this.start ? `Publicado em ${this.start}.` : "Em revisão."}`);
     }
 }
 

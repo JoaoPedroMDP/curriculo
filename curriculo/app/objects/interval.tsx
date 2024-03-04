@@ -1,12 +1,12 @@
 import CustomDate from "./customDate";
 
 export default class Interval{
-    start: string
-    end: string 
+    start: CustomDate
+    end: CustomDate | string 
 
     constructor(start: string, end?: string){
-        this.start = new CustomDate(start).toMonthYear();
-        this.end = end == null ? "Atual" :  new CustomDate(end).toMonthYear();
+        this.start = new CustomDate(start);
+        this.end = end == null ? "Atual" :  new CustomDate(end);
     }
 
     static fromData(data: any){
@@ -14,8 +14,7 @@ export default class Interval{
     }
 
     render(){
-        return(
-            <span className="font-raleway text-[24px]">{this.start} - {this.end}</span>
-        )
+        let end = this.end instanceof CustomDate ? this.end.toMonthYear() : this.end;
+        return this.start.toMonthYear() + " - " + end;
     }
 }

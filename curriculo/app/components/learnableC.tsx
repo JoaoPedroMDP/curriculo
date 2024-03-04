@@ -1,24 +1,14 @@
 'use client';
 
-import { useEffect, useState } from "react";
+export default function LearnableC({learnable}: {learnable: any, onClickHandler?: any}){
+    let underlineConfig = "after:relative after:bottom-[1px] after:duration-200 after:block after:w-0 after:transition-width after:group-hover:w-[100%] after:h-[1px]"
+    let textConfig = "text-nowrap text-center group-hover:text-whiteBlue text-[18px]"
 
-export default function LearnableC({learnable, onClickHandler, toggled = false}: {learnable: any, onClickHandler?: any, toggled?: boolean}){
-    const colorVariants: any = {
-        dark: `hover:text-whiteBlue ${toggled ? 'bg-darkBlue text-whiteBlue ring-yellow ring-offset-darkBlue ring-offset-2 ring-2' : 'bg-lightBlue'}`,
-        light: `hover:text-yellow ${toggled ? 'bg-darkBlue text-yellow ring-lightBlue ring-offset-darkBlue ring-offset-2 ring-2' : 'bg-yellow'}`,
-    }
-
-    function handleClick(e: any){
-        if(onClickHandler !== undefined){
-            onClickHandler(e);
-        }
-        console.log(learnable.name, toggled);
-    }
-
-    return <p 
-    onClick={handleClick}
-    className={`${colorVariants[learnable.theme]} text-darkBlue hover:bg-darkBlue rounded-full select-none cursor-pointer px-2 text-center`}
-    >
-        {learnable.name}
-    </p>
+    return (
+    <div className={`group flex flex-grow justify-center transition-color duration-200 hover:bg-darkBlue p-5`}>
+        <p className={`${underlineConfig} ${textConfig} after:bg-whiteBlue w-min transition-color duration-300 cursor-pointer`}>
+            {learnable.name}
+        </p>
+    </div>
+    );
 }

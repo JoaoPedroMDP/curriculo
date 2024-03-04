@@ -7,9 +7,6 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    container: {
-      center: true,
-    },
     extend: {
       fontFamily: {
         bebas: ['"Bebas Neue"', 'sans-serif'],
@@ -23,8 +20,6 @@ const config: Config = {
         mediumBlue: '#026873',
         lightBlue: '#2AB0BF',
         whiteBlue: '#DEF2F4',
-        white: '#FAFAFA',
-        black: '#0F0F0F',
         yellow: '#F2B641'
       }
     },
