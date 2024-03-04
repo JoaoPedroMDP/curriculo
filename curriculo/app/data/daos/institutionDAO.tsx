@@ -23,7 +23,7 @@ class InstitutionDAO extends BaseDAO {
         }
 
         return institutions.sort((a, b) => {
-            let result = a.compareDate(a.start, b.start, true)
+            let result = a.compareDate(a.start, b.start, true);
             return result;
         });
     }
