@@ -1,50 +1,24 @@
 import { JSX } from "react"
 import Interval from "./interval"
 import { Skill, Tool } from "./learnables"
+import CustomDate from "./customDate"
+import HasDate from "./base/hasDate"
 
-class ExpBuilder{
-    static build(data: any): Experience{
-        let experience: Experience;
-        switch(data.type){
-            case "job":
-                experience = new Job(data);
-                break;
-            case "course":
-                experience = new Course(data);
-                break;
-            case "research":
-                experience = new Research(data);
-                break;
-            case "paper":
-                experience = new Paper(data);
-                break;
-            default:
-                experience = new Experience(data);
-                break;
-        }
-        return experience;
-    }
 
-    static buildAll(data: any[]): Experience[]{
-        let experiences: Experience[] = [];
-        data.forEach((experienceData) => {
-            experiences.push(ExpBuilder.build(experienceData));
-        });
-        return experiences;
-    }
-}
-
-class Experience {
+class Experience extends HasDate{
     id: string
     type: string
     description: string
     tools?: Tool[] = []
     skills?: Skill[] = []
+    start: string
 
-    constructor({id, type, description, tools, skills}: Experience) {
+    constructor({id, type, start, description, tools, skills}: Experience) {
+        super();
         this.id = id
         this.type = type
         this.description = description
+        this.start = start;
         // Essee 'as unknown as string[]' é uma gambiarra para contornar o erro de tipagem. 
         // No construtor sempre vem como string, mas não queria criar uma tipagem enorme aqui no objeto.
         if(tools != undefined){
@@ -64,7 +38,7 @@ class Experience {
         return <p className="font-raleway font-bold text-[18px] sm:text-[28px]">{position}</p>;
     }
 
-    renderInterval(interval: string = ""){
+    renderDates(interval: string = ""){
         return <p className="font-raleway text-[17px] sm:text-[20px]">{interval}</p>;
     }
 
@@ -72,7 +46,7 @@ class Experience {
         return (
             <>
             {this.renderPosition()}
-            {this.renderInterval()}
+            {this.renderDates()}
             </>
         );
     }
@@ -85,38 +59,40 @@ class Experience {
             </div>
         );
     }
+
+
 }
 
 class Job extends Experience {
     position: string
-    interval: Interval
+    end: string
 
-    constructor({position, interval, ...experience}: Job & Experience) {
-        experience.type = "job"
-        super(experience as Experience)
-        this.position = position
-        this.interval = Interval.fromData(interval);
+    constructor({position, end, ...experience}: Job & Experience) {
+        experience.type = "job";
+        super(experience as Experience);
+        this.position = position;
+        this.end = end;
     }
 
     renderPosition(position: string = ""){
         return super.renderPosition(this.position);
     }
 
-    renderInterval(interval: string = ""){
-        return super.renderInterval(this.interval.render());
+    renderDates(interval: string = ""){
+        return super.renderDates(new Interval(this.start, this.end).render());
     }
 }
 
 class Course extends Experience {
     name: string
-    interval: Interval
+    end: string
     level: string
 
-    constructor({name, interval, level, ...experience}: Course & Experience) {
+    constructor({name, end, level, ...experience}: Course & Experience) {
         experience.type = "course";
         super(experience as Experience);
         this.name = name;
-        this.interval = Interval.fromData(interval);
+        this.end = end;
         this.level = level;
     }
 
@@ -124,51 +100,49 @@ class Course extends Experience {
         return super.renderPosition(this.level + ': '+ this.name);
     }
 
-    renderInterval(interval: string = ""){
-        return super.renderInterval(this.interval.render());
+    renderDates(interval: string = ""){
+        return super.renderDates(new Interval(this.start, this.end).render());
     }
 }
 
 class Research extends Experience {
     subject: string
-    interval: Interval
+    end: string
 
-    constructor({subject, interval, ...experience}: Research & Experience) {
+    constructor({subject, end, ...experience}: Research & Experience) {
         experience.type = "research";
         super(experience as Experience);
         this.subject = subject
-        this.interval = Interval.fromData(interval);
+        this.end = end;
     }
 
     renderPosition(position: string = ""){
         return super.renderPosition("Pesquisa sobre " + this.subject);
     }
 
-    renderInterval(interval: string = ""){
-        return super.renderInterval(this.interval.render());
+    renderDates(interval: string = ""){
+        return super.renderDates(new Interval(this.start, this.end).render());
     }
 }
 
 class Paper extends Experience {
     title: string
-    publication_date: string
     magazine: string
 
-    constructor({title, publication_date, magazine, ...experience}: Paper & Experience) {
+    constructor({title, magazine, ...experience}: Paper & Experience) {
         experience.type = "paper";
         super(experience as Experience);
-        this.title = title
-        this.publication_date = publication_date
-        this.magazine = magazine
+        this.title = title;
+        this.magazine = magazine;
     }
 
     renderPosition(position?: string): JSX.Element {
         return super.renderPosition(`Artigo: "${this.title}"`);
     }
 
-    renderInterval(interval?: string): JSX.Element {
-        return super.renderInterval(`Revista ${this.magazine}. ${this.publication_date ? `Publicado em ${this.publication_date}.` : "Em revisão."}`);
+    renderDates(interval?: string): JSX.Element {
+        return super.renderDates(`Revista ${this.magazine}. ${this.start ? `Publicado em ${this.start}.` : "Em revisão."}`);
     }
 }
 
-export { ExpBuilder, Experience, Job, Course, Research, Paper }
+export { Experience, Job, Course, Research, Paper }

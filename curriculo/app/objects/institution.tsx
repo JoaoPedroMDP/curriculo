@@ -1,14 +1,28 @@
-import { ExpBuilder, Experience } from "./experiences";
+import {default as expDao} from "@/app/data/daos/experienceDAO";
+import HasDate from "./base/hasDate";
 
-class Institution {
-    id: string
+class Institution extends HasDate{
+    id: number
     name: string;
-    experiences: Experience[] | any[] = [];
+    start?: string;
 
-    constructor({id, name, experiences}: Institution){
+    constructor({id, name}: {id: number, name: string}){
+        super();
         this.id = id;
         this.name = name;
-        this.experiences = ExpBuilder.buildAll(experiences);
+        this.start = this.getFirstExpDate();
+    }
+
+    getFirstExpDate(){
+        let filters = [{"field": "institution_id", "value": this.id}];
+        // Vou pegar a data de início da primeira experiência dessa instituição
+
+        let allExpsOrdered = expDao.filter(filters).sort((a, b) => a.compareDate(a.start, b.start, true));
+        if(allExpsOrdered){
+            return allExpsOrdered[0].start;
+        }
+
+        return undefined;
     }
 
     static collectAll(raw_institutions: any[]){
@@ -18,6 +32,34 @@ class Institution {
         });
 
         return all;
+    }
+
+    getExperiences(type: string){
+        switch(type){
+            case "professional":
+                return this.getProfessionalExperiences();
+            case "academic":
+                return this.getAcademicExperiences();
+            default:
+                return [];
+        };
+    }
+
+    getProfessionalExperiences(){
+        let filters = [
+            {"field": "type", "value": "job"},
+            {"field": "institution_id", "value": this.id}
+        ];
+
+        return expDao.filter(filters).sort((a, b)=> {return a.compareDate(a.start, b.start, true)});
+    }
+
+    getAcademicExperiences(){
+        let filters = [
+            {"field": "type", "operator": "neq","value": "job"},
+            {"field": "institution_id", "value": this.id}
+        ];
+        return expDao.filter(filters).sort((a, b)=> {return a.compareDate(a.start, b.start, true)});
     }
 }
 
