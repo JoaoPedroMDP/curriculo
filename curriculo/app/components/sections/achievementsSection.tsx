@@ -27,7 +27,7 @@ export default function AchievementsSection(){
                     {Object.keys(achievements).map((year, achievs) => {
                         return(
                             <div key={year} className="font-raleway flex flex-col">
-                                <h2 className="text-darkBlue bg-lightBlue text-center font-raleway text-[40px] lg:text-[50px] font-bold ">{year}</h2>
+                                <h2 className="text-lightBlue bg-darkBlue text-center font-raleway text-[40px] lg:text-[50px] font-bold ">{year}</h2>
                                 <div className="flex flex-row flex-wrap m-[2vw] justify-center">
                                     {achievements[year].map((achiev: Achievement) => {
                                         return(
