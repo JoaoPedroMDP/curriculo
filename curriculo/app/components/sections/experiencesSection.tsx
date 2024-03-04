@@ -51,14 +51,7 @@ function renderExperiences(institutions: Institution[], title: string, expType: 
 }
 
 export default function ExperiencesSection({}) {
-    function sortInstitutionsByDate (institutions: Institution[]): Institution[] {
-        return institutions.sort((a, b) => {
-            let result = a.compareDate(a.start, b.start, true)
-            return result;
-        });
-    }
-
-    let institutions: Institution[] = sortInstitutionsByDate(instDao.getAll());
+    let institutions: Institution[] = instDao.allSortedByDate();
 
     return(
         <section id="experiences" className="flex flex-row flex-wrap">

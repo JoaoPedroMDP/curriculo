@@ -16,6 +16,17 @@ class InstitutionDAO extends BaseDAO {
         });
         return institutions;
     }
+
+    allSortedByDate (institutions: Institution[] = []): Institution[] {
+        if(institutions.length == 0) {
+            institutions = this.getAll();
+        }
+
+        return institutions.sort((a, b) => {
+            let result = a.compareDate(a.start, b.start, true)
+            return result;
+        });
+    }
 };
 
 var instDao = new InstitutionDAO();

@@ -16,7 +16,18 @@ class AchievementDAO extends BaseDAO {
         });
         return achievements;
     }
+
+    allSortedByDate (achievements: Achievement[] = []): Achievement[] {
+        if(achievements.length == 0) {
+            achievements = this.getAll();
+        }
+
+        return achievements.sort((a, b) => {
+            let result = a.compareDate(a.date, b.date, true)
+            return result;
+        });
+    }
 }
 
-var dao = new AchievementDAO();
-export default dao;
+var achievDao = new AchievementDAO();
+export default achievDao;

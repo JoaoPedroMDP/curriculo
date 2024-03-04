@@ -1,7 +1,7 @@
 const institutions: any = [
     {
         "id": 0,
-        "name": "Ecomp - Empresa Júnior de Computação da UFPR",
+        "name": "Ecomp UFPR",
     },
     {
         "id": 1,
@@ -9,7 +9,7 @@ const institutions: any = [
     },
     {
         "id": 2,
-        "name": "Rede Nacional de Ensino e Pesquisa - POP Paraná",
+        "name": "RNP - PoP Paraná",
     },
     {
         "id": 3,
@@ -97,17 +97,7 @@ const experiences: any = [
         "start": "01/09/2022",
         "end": "01/09/2023",
         "tools": ["Python", "Selenium", "Docker"],
-        "description": "Pesquisa sobre Web Scraping para obtenção de dados turísticos do Tripadvisor. Desenvolvi um Scrapper, juntamente de um artigo científico sobre o tema."
-    },
-    {
-        "id": 3,
-        "institution_id": 3,
-        "type": "paper",
-        "title": "Coleta de dados com Web Scraping: problemas, soluções e otimizações",
-        "magazine": "iSys",
-        "skills": ["Escrita acadêmica"],
-        "description": "Artigo científico sobre Web Scraping, com foco nos problemas que foram enfrentados no processo e como os resolvi. Publicado na revista iSys",
-        "start": null
+        "description": "Pesquisa sobre Web Scraping para obtenção de dados turísticos do Tripadvisor. Desenvolvi um Scrapper, juntamente de um artigo científico sobre o tema, ainda em revisão."
     },
     {
         "id": 4,

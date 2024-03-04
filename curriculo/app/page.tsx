@@ -4,6 +4,7 @@ import BannerSection from './components/sections/bannerSection';
 import LearnablesSection from './components/sections/learnablesSection';
 import { Skill, Tool } from './objects/learnables';
 import ExperiencesSection from './components/sections/experiencesSection';
+import AchievementsSection from './components/sections/achievementsSection';
 
 export default function Home() {
     let tools = Tool.collectTools(["Python", "Django", "Flask", "FastAPI", "NodeJS", "Express", "React", "NextJS", "TypeScript", "JavaScript", "HTML", "CSS", "SASS"]);
@@ -14,6 +15,7 @@ export default function Home() {
             <BannerSection curriculumData={curriculumData}/>
             <ExperiencesSection />
             <LearnablesSection tools={tools} skills={skills}/>
+            <AchievementsSection />
         </section>
     );
 }
