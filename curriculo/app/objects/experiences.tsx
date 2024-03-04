@@ -39,7 +39,7 @@ class Experience extends HasDate{
     }
 
     renderDates(interval: string = ""){
-        return <p className="font-raleway text-[17px] sm:text-[20px]">{interval}</p>;
+        return <p className="font-raleway italic text-[17px] sm:text-[20px]">{interval}</p>;
     }
 
     renderHeaders(){
@@ -53,7 +53,7 @@ class Experience extends HasDate{
 
     render(): JSX.Element{
         return (
-            <div className="my-5">
+            <div className="my-3">
                 {this.renderHeaders()}
                 <p className="pt-2 text-[15px] sm:text-[20px]">{this.description}</p>
             </div>
