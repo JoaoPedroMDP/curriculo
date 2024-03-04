@@ -165,7 +165,6 @@ const experiences: any = [
         "start": "01/04/2020",
         "end": "31/12/2020",
     },
-
     {
         "id": 10,
         "institution_id": 0,

@@ -17,7 +17,7 @@ class Institution extends HasDate{
         let filters = [{"field": "institution_id", "value": this.id}];
         // Vou pegar a data de início da primeira experiência dessa instituição
 
-        let allExpsOrdered = expDao.filter(filters).sort((a, b) => a.compareDate(a.start, b.start, true));
+        let allExpsOrdered = expDao.filter(filters).sort((a, b) => a.compareDate(a.start, b.start));
         if(allExpsOrdered){
             return allExpsOrdered[0].start;
         }
