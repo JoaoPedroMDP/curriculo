@@ -179,7 +179,6 @@ const experiences: any = [
     }
 ];
 
-
 const curriculumData: any = {
     "user": {
         "name": "João Pedro Martins de Paula",

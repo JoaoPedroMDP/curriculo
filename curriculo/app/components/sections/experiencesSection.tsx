@@ -1,10 +1,38 @@
 'use client'
-
 import { Institution } from "@/app/objects/institution";
 import instDao from "../../data/daos/institutionDAO";
 import { Experience } from "@/app/objects/experiences";
+import { Learnable } from "@/app/objects/learnables";
 
-function renderInstitutionExperiences(exps: Experience[], institution_id: number, institution_name: string, theme: string){
+function passFilters(exp: Experience, filters: any): boolean{
+    let pass: boolean = false
+    
+    if(exp.tools !== undefined){
+        for(let i in exp.tools){
+            if(filters[exp.tools[i].name]){
+                pass = true;
+                break;
+            }
+        }
+    }
+
+    if(pass == false && exp.skills !== undefined){
+        for(let i in exp.skills){
+            if(filters[exp.skills[i].name]){
+                pass = true;
+                break;
+            }
+        }
+    }
+
+    if(Object.values(filters).length == 0){
+        pass = true;
+    }
+
+    return pass;
+}
+
+function renderInstitutionExperiences(exps: Experience[], filters: Learnable[], institution_id: number, institution_name: string, theme: string){
     let selectedTheme: string = theme == "dark" ? "bg-whiteBlue" : "bg-darkBlue";
 
     return(
@@ -12,19 +40,22 @@ function renderInstitutionExperiences(exps: Experience[], institution_id: number
             <p className="font-raleway font-bold text-[20px] sm:text-[34px]">{institution_name}</p>
             <div className="flex flex-col">
                 {exps.map((exp: Experience) => {
-                    return(
-                        <div key={exp.id} className="flex flex-row">
-                            <span className={`mx-[1vw] w-[2px] shrink-0 ${selectedTheme}`}></span>
-                            {exp.render()}
-                        </div>
-                    );
+                    if(filters.length == 0 || (passFilters(exp, filters))){
+                        return(
+                            <div key={exp.id} className="flex flex-row">
+                                <span className={`mx-[1vw] w-[2px] shrink-0 ${selectedTheme}`}></span>
+                                {exp.render()}
+                            </div>
+                        );
+                    }
+
                 })}
             </div>
         </div>
     );
 }
 
-function renderExperiences(institutions: Institution[], title: string, expType: string, theme: string){
+function renderExperiences(institutions: Institution[], filters: Learnable[], title: string, expType: string, theme: string){
     let selectedTheme: string = theme == "dark" ? "bg-darkBlue text-whiteBlue" : "bg-whiteBlue text-darkBlue";
 
     let line: string = "after:h-[2px] after:w-[80%] after:left-[10%] after:block after:relative";
@@ -38,11 +69,10 @@ function renderExperiences(institutions: Institution[], title: string, expType: 
                     {institutions.map((inst)=>{
                         let exps = inst.getExperiences(expType);
                         if(exps.length == 0){
-                            console.log("No experiences for " + expType + " in " + inst.name);
                             return;
                         }
 
-                        return(renderInstitutionExperiences(exps, inst.id, inst.name, theme));
+                        return(renderInstitutionExperiences(exps, filters, inst.id, inst.name, theme));
                     })}
                 </div>
             </div>
@@ -50,13 +80,12 @@ function renderExperiences(institutions: Institution[], title: string, expType: 
     );
 }
 
-export default function ExperiencesSection({}) {
+export default function ExperiencesSection({filters} : {filters: Learnable[]}) {
     let institutions: Institution[] = instDao.allSortedByDate();
-
     return(
         <section id="experiences" className="flex flex-row flex-wrap">
-            {renderExperiences(institutions, "Experiência Profissional", "professional", "dark")}
-            {renderExperiences(institutions, "Experiência Acadêmica", "academic", "light")}
+            {renderExperiences(institutions, filters, "Experiência Profissional", "professional", "dark")}
+            {renderExperiences(institutions, filters, "Experiência Acadêmica", "academic", "light")}
         </section>
     );
 }
