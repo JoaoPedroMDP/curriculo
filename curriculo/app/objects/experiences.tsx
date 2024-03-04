@@ -1,7 +1,6 @@
 import { JSX } from "react"
 import Interval from "./interval"
 import { Skill, Tool } from "./learnables"
-import CustomDate from "./customDate"
 import HasDate from "./base/hasDate"
 
 

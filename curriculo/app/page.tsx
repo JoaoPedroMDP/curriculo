@@ -6,16 +6,16 @@ import { Skill, Tool } from './objects/learnables';
 import ExperiencesSection from './components/sections/experiencesSection';
 import AchievementsSection from './components/sections/achievementsSection';
 import AboutMeSection from './components/sections/aboutMeSection';
+import { useState } from 'react';
 
 export default function Home() {
-    let tools = Tool.collectTools(["Python", "Django", "Flask", "FastAPI", "NodeJS", "Express", "React", "NextJS", "TypeScript", "JavaScript", "HTML", "CSS", "SASS"]);
-    let skills = Skill.collectSkills(["Liderança", "Comunicação", "Trabalho em equipe", "Proatividade", "Resiliência", "Adaptabilidade", "Empatia", "Organização", "Pensamento crítico"]);
+    const [filters, setFilters] = useState([]);
     
     return(
         <section id="site" className="flex flex-col">
             <BannerSection curriculumData={curriculumData}/>
             <ExperiencesSection />
-            <LearnablesSection tools={tools} skills={skills}/>
+            <LearnablesSection filters={filters}/>
             <AchievementsSection />
             <AboutMeSection />
         </section>
