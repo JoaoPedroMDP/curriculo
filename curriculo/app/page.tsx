@@ -25,7 +25,7 @@ export default function Home() {
         <section id="site" className="flex flex-col">
             <BannerSection curriculumData={curriculumData}/>
             <ExperiencesSection filters={filters}/>
-            <LearnablesSection filters={filters} updateFilters={updateLearnablesFilter}/>
+            <LearnablesSection updateFilters={updateLearnablesFilter}/>
             <AchievementsSection />
             <AboutMeSection />
         </section>
