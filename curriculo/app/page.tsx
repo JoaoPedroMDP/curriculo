@@ -35,8 +35,12 @@ export default function Home() {
             <AchievementsSection />
             <AboutMeSection />
             <DataConsentSection consented={dataConsent} updateConsent={setDataConsent}/>
-            <Analytics/>
-            <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS || ""} />
+            {dataConsent == true &&
+                <>
+                    <Analytics/>
+                    <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS || ""} />
+                </>
+            }
         </section>
     );
 }
