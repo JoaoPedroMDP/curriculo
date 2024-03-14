@@ -43,7 +43,7 @@ function renderInstitutionExperiences(exps: Experience[], filters: Learnable[], 
                 {exps.map((exp: Experience) => {
                     let filtered = !passFilters(exp, filters);
                     return(
-                        <div key={exp.id} className={`flex flex-row ${filtered ? 'opacity-25': ''}`}>
+                        <div key={exp.id} className={`flex flex-row ${filtered ? 'opacity-10': ''}`}>
                             <span className={`mx-[20px] w-[2px] shrink-0 ${selectedTheme}`}></span>
                             {exp.render()}
                         </div>
@@ -63,7 +63,7 @@ function renderExperiences(institutions: Institution[], filters: Learnable[], ti
     return(
         <div className={`lg:basis-1/2 w-full ${selectedTheme}`}>
             <h1 className={`${line} after:bg-mediumBlue sticky font-raleway text-[40px] sm:text-[50px] lg:text-[60px] text-center mt-5 mx-5`}>{title}</h1>
-            <div className={`flex flex-col h-[300px] lg:h-[400px] px-[40px] py-5 gap-10`}>
+            <div className={`flex flex-col h-[400px] lg:h-[500px] px-[40px] py-5 gap-10`}>
                 <div className={`scroll overflow-auto ${scrollTheme} flex flex-col gap-5`}>
                     {institutions.map((inst)=>{
                         let exps = inst.getExperiences(expType);

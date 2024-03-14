@@ -36,8 +36,8 @@ export default function AchievementsSection(){
                                                     <h2 className="font-raleway font-bold text-[32px]">{achiev.title}</h2>
                                                     <p className="font-raleway text-[24px]">{achiev.description}</p>
                                                 </div>
-                                                <div className="transition-all overflow-scroll duration-300 ease-out bg-darkBlue group-hover:bg-lightBlue text-yellow group-hover:text-darkBlue">
-                                                    <span className="font-bold text-[32px] italic pl-[20px] text-nowrap">{achiev.institution_name}</span>
+                                                <div className="transition-all scroll overflow-auto duration-300 ease-out bg-darkBlue group-hover:bg-lightBlue text-yellow group-hover:text-darkBlue">
+                                                    <span className="font-bold text-[32px] italic px-[20px] text-nowrap">{achiev.institution_name}</span>
                                                 </div>
                                             </div>
                                         );
