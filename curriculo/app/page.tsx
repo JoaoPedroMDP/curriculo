@@ -30,10 +30,10 @@ export default function Home() {
     return(
         <section id="site" className="flex flex-col">
             <BannerSection curriculumData={curriculumData}/>
+            <AboutMeSection />
             <ExperiencesSection filters={filters}/>
             <LearnablesSection updateFilters={updateLearnablesFilter}/>
             <AchievementsSection />
-            <AboutMeSection />
             <DataConsentSection consented={dataConsent} updateConsent={setDataConsent}/>
             {dataConsent == true &&
                 <>
