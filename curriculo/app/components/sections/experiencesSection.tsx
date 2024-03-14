@@ -3,6 +3,7 @@ import { Institution } from "@/app/objects/institution";
 import instDao from "../../data/daos/institutionDAO";
 import { Experience } from "@/app/objects/experiences";
 import { Learnable } from "@/app/objects/learnables";
+import { useMemo } from "react";
 
 function passFilters(exp: Experience, filters: any): boolean{
     let pass: boolean = false
@@ -40,8 +41,9 @@ function renderInstitutionExperiences(exps: Experience[], filters: Learnable[], 
             <p className="font-raleway font-bold text-[20px] sm:text-[34px]">{institution_name}</p>
             <div className="flex flex-col">
                 {exps.map((exp: Experience) => {
+                    let filtered = !passFilters(exp, filters);
                     return(
-                        <div key={exp.id} className="flex flex-row">
+                        <div key={exp.id} className={`flex flex-row ${filtered ? 'opacity-25': ''}`}>
                             <span className={`mx-[1vw] w-[2px] shrink-0 ${selectedTheme}`}></span>
                             {exp.render()}
                         </div>
@@ -74,7 +76,7 @@ function renderExperiences(institutions: Institution[], filters: Learnable[], ti
                             return;
                         }
 
-                        return(renderInstitutionExperiences(filteredExps, filters, inst.id, inst.name, theme));
+                        return(renderInstitutionExperiences(exps, filters, inst.id, inst.name, theme));
                     })}
                 </div>
             </div>
@@ -83,7 +85,8 @@ function renderExperiences(institutions: Institution[], filters: Learnable[], ti
 }
 
 export default function ExperiencesSection({filters} : {filters: Learnable[]}) {
-    let institutions: Institution[] = instDao.allSortedByDate();
+    let institutions: Institution[] = useMemo(() => instDao.allSortedByDate(), []);
+    
     return(
         <section id="experiences" className="flex flex-row flex-wrap">
             {renderExperiences(institutions, filters, "Experiência Profissional", "professional", "dark")}
