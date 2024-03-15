@@ -20,9 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll light-scroll">
       <head>
-        <meta name="og:title" property="og:title" content={"Currículo de " + curriculumData.user.name}></meta>
-        <meta name="twitter:card" content="summary">{"Currículo de " + curriculumData.user.name}</meta>
-        <meta name="description">{curriculumData.user.brief}</meta>
+        <meta name="og:title" property="og:title" content={"Currículo de " + curriculumData.user.name} />
+        <meta name="twitter:card" content={"Currículo de " + curriculumData.user.name}/>
+        <meta name="description" content={curriculumData.user.brief} />
       </head>
       <body className={inter.className}>
         {children}
