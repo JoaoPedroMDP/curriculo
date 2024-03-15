@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   future: {
@@ -27,7 +28,15 @@ const config: Config = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        ".no-overflow-anchoring": {
+          overflowAnchor: "none",
+        },
+      });
+    }),
+  ],
 };
 
 export default config;

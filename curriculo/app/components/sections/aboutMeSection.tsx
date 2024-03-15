@@ -5,7 +5,7 @@ export default function AboutMeSection(){
     let yearsOfExperience = 2;
 
     return(
-        <section id="introduction" className="font-raleway p-[50px] flex flex-col flex-wrap justify-center lg:justify-between items-center">
+        <section id="introduction" className="font-raleway p-[50px] lg:px-[300px] flex flex-col flex-wrap justify-center lg:justify-between items-center">
             {/* <h1 className="text-[50px] font-bold">Sobre mim</h1> */}
             <div className="flex flex-wrap justify-center lg:justify-between align-middle">
                 <div id="textual-introduction" className="flex flex-col gap-5">
