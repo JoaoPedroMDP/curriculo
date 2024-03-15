@@ -16,29 +16,24 @@ export default function BannerSection({curriculumData}: {curriculumData: any}){
 
     return(
         <section id="banner" 
-        className="relative flex flex-row flex-wrap justify-center lg:justify-between items-center py-10 xl:py-[150px] lg:px-[180px]"
+        className="relative flex flex-col justify-center align-middle p-[50px] lg:flex-row lg:justify-between lg:px-[50px] lg:py-[150px] xl:px-[200px]"
         >
-            <Image  
-            src={"/banner_background.jpeg"} 
-            fill
+            {/* BACKGROUND */}
+            <Image src={"/banner_background.jpeg"} fill
             alt="Autor do currículo numa trilha no Pico do Anhangava. Óculos de sol, boné preto e mochila cinza."
-            className="absolute opacity-30 z-[-1] object-cover object-right-top max-sm:hidden"
+            className="absolute opacity-30 z-[-1] object-cover object-right-top"
             />
-            <div className="flex flex-col xl:items-start text-center lg:text-start order-2 lg:order-1 mt-10 lg:mt-0 lg:basis-2/3">
-                <h1 className="font-bebas text-[50px] lg:text-[60px] xl:text-[80px]">{user.name}</h1>
-                <p className="font-raleway text-[25px] lg:text-[22px] xl:text-[30px]">{user.title}</p>
-                <p className="font-raleway text-[18px] lg:text-[15px] xl:text-[20px]">{user.marital_status} | {age} anos</p>
-                <p className="font-raleway text-[18px] lg:text-[15px] xl:text-[20px]">{user.email}</p>
-                <p className="font-raleway text-[18px] lg:text-[15px] xl:text-[20px]"><a href={user.linkedin} target="blank">Linkedin</a> | <a href={user.github} target="blank">Github</a></p>
+            
+            <div className="relative w-[250px] h-[250px] self-center lg:order-2 lg:w-[300px] lg:h-[300px]">
+                <Image src={"/author.jpeg"} fill alt="Autor do currículo" className="object-cover rounded-full border-yellow border-[2px] shadow-md shadow-lightBlue"/>
             </div>
-
-            <div className="relative w-[250px] h-[250px] xl:w-[350px] xl:h-[350px] order-1 2xl:order-2">
-                <Image 
-                className="rounded-full object-cover" 
-                src={"/author.jpeg"} 
-                fill
-                alt="Autor do currículo"
-                />
+            
+            <div className="flex flex-col flex-wrap flex-shrink m-5 text-center lg:text-start lg:order-1">
+                <h1 className="font-bebas text-[35px] lg:text-[50px]">{user.name}</h1>
+                <p className="font-raleway text-wrap text-[20px] lg:text-[25px]">{user.title}</p>
+                <p className="font-raleway text-wrap text-[15px] lg:text-[25px]">{user.marital_status} | {age} anos</p>
+                <p className="font-raleway text-wrap text-[15px] lg:text-[25px]">{user.email}</p>
+                <p className="font-raleway text-wrap text-[15px] lg:text-[25px]"><a href={user.linkedin} target="blank">Linkedin</a> | <a href={user.github} target="blank">Github</a></p>
             </div>
         </section>
     );
