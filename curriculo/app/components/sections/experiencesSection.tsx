@@ -62,7 +62,7 @@ function renderExperiences(institutions: Institution[], filters: Learnable[], ti
 
     return(
         <div className={`lg:basis-1/2 w-full ${selectedTheme}`}>
-            <h1 className={`${line} after:bg-mediumBlue sticky font-raleway text-[40px] sm:text-[50px] lg:text-[60px] text-center mt-5 mx-5`}>{title}</h1>
+            <p className={`${line} after:bg-mediumBlue sticky font-raleway text-[40px] sm:text-[50px] lg:text-[60px] text-center mt-5 mx-5`}>{title}</p>
             <div className={`flex flex-col h-[400px] lg:h-[500px] px-[40px] py-5 gap-10`}>
                 <div className={`scroll overflow-auto no-overflow-anchoring ${scrollTheme} flex flex-col gap-5`}>
                     {institutions.map((inst)=>{

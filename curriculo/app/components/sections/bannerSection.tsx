@@ -25,7 +25,7 @@ export default function BannerSection({curriculumData}: {curriculumData: any}){
             className="absolute opacity-30 z-[-1] object-cover object-right-top max-sm:hidden"
             />
             <div className="flex flex-col xl:items-start text-center lg:text-start order-2 lg:order-1 mt-10 lg:mt-0 lg:basis-2/3">
-                <p className="font-bebas text-[50px] lg:text-[60px] xl:text-[80px]">{user.name}</p>
+                <h1 className="font-bebas text-[50px] lg:text-[60px] xl:text-[80px]">{user.name}</h1>
                 <p className="font-raleway text-[25px] lg:text-[22px] xl:text-[30px]">{user.title}</p>
                 <p className="font-raleway text-[18px] lg:text-[15px] xl:text-[20px]">{user.marital_status} | {age} anos</p>
                 <p className="font-raleway text-[18px] lg:text-[15px] xl:text-[20px]">{user.email}</p>
