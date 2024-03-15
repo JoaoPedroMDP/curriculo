@@ -195,6 +195,7 @@ const curriculumData: any = {
         "github": "https://github.com/JoaoPedroMDP",
         "email": "joao.pedro.mdp@outlook.com",
         "title": "Graduando em Análise e Desenvolvimento de Sistemas UFPR",
+        "brief": "Desenvolvedor full-stack versátil, também com experiências acadêmicas em análise de dados e machine-learning"
     }
 }
 

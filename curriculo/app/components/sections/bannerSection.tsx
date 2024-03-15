@@ -20,16 +20,16 @@ export default function BannerSection({curriculumData}: {curriculumData: any}){
         >
             {/* BACKGROUND */}
             <Image src={"/banner_background.jpeg"} fill
-            alt="Autor do currículo numa trilha no Pico do Anhangava. Óculos de sol, boné preto e mochila cinza."
+            alt={user.brief}
             className="absolute opacity-30 z-[-1] object-cover object-right-top"
             />
             
             <div className="relative w-[250px] h-[250px] self-center lg:order-2 lg:w-[300px] lg:h-[300px]">
-                <Image src={"/author.jpeg"} fill alt="Autor do currículo" className="object-cover rounded-full border-yellow border-[2px] shadow-md shadow-lightBlue"/>
+                <Image src={"/author.jpeg"} fill alt={user.brief} className="object-cover rounded-full border-yellow border-[2px] shadow-md shadow-lightBlue"/>
             </div>
             
             <div className="flex flex-col flex-wrap flex-shrink m-5 text-center lg:text-start lg:order-1">
-                <h1 className="font-bebas text-[35px] lg:text-[50px]">{user.name}</h1>
+                <title className="font-bebas text-[35px] lg:text-[50px]">{user.name}</title>
                 <p className="font-raleway text-wrap text-[20px] lg:text-[25px]">{user.title}</p>
                 <p className="font-raleway text-wrap text-[15px] lg:text-[25px]">{user.marital_status} | {age} anos</p>
                 <p className="font-raleway text-wrap text-[15px] lg:text-[25px]">{user.email}</p>
