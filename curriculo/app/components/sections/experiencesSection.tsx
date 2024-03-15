@@ -3,6 +3,7 @@ import { Institution } from "@/app/objects/institution";
 import instDao from "../../data/daos/institutionDAO";
 import { Experience } from "@/app/objects/experiences";
 import { Learnable } from "@/app/objects/learnables";
+import { useMemo } from "react";
 
 function passFilters(exp: Experience, filters: any): boolean{
     let pass: boolean = false
@@ -40,9 +41,10 @@ function renderInstitutionExperiences(exps: Experience[], filters: Learnable[], 
             <p className="font-raleway font-bold text-[20px] sm:text-[34px]">{institution_name}</p>
             <div className="flex flex-col">
                 {exps.map((exp: Experience) => {
+                    let filtered = !passFilters(exp, filters);
                     return(
-                        <div key={exp.id} className="flex flex-row">
-                            <span className={`mx-[1vw] w-[2px] shrink-0 ${selectedTheme}`}></span>
+                        <div key={exp.id} className={`flex flex-row ${filtered ? 'opacity-10': ''}`}>
+                            <span className={`mx-[20px] w-[2px] shrink-0 ${selectedTheme}`}></span>
                             {exp.render()}
                         </div>
                     );
@@ -61,8 +63,8 @@ function renderExperiences(institutions: Institution[], filters: Learnable[], ti
     return(
         <div className={`lg:basis-1/2 w-full ${selectedTheme}`}>
             <h1 className={`${line} after:bg-mediumBlue sticky font-raleway text-[40px] sm:text-[50px] lg:text-[60px] text-center mt-5 mx-5`}>{title}</h1>
-            <div className={`flex flex-col h-[35vh] lg:h-[50vh] px-[40px] py-5 gap-10`}>
-                <div className={`scroll overflow-auto ${scrollTheme} flex flex-col gap-5`}>
+            <div className={`flex flex-col h-[400px] lg:h-[500px] px-[40px] py-5 gap-10`}>
+                <div className={`scroll overflow-auto no-overflow-anchoring ${scrollTheme} flex flex-col gap-5`}>
                     {institutions.map((inst)=>{
                         let exps = inst.getExperiences(expType);
                         if(exps.length == 0){
@@ -74,7 +76,7 @@ function renderExperiences(institutions: Institution[], filters: Learnable[], ti
                             return;
                         }
 
-                        return(renderInstitutionExperiences(filteredExps, filters, inst.id, inst.name, theme));
+                        return(renderInstitutionExperiences(exps, filters, inst.id, inst.name, theme));
                     })}
                 </div>
             </div>
@@ -83,7 +85,8 @@ function renderExperiences(institutions: Institution[], filters: Learnable[], ti
 }
 
 export default function ExperiencesSection({filters} : {filters: Learnable[]}) {
-    let institutions: Institution[] = instDao.allSortedByDate();
+    let institutions: Institution[] = useMemo(() => instDao.allSortedByDate(), []);
+    
     return(
         <section id="experiences" className="flex flex-row flex-wrap">
             {renderExperiences(institutions, filters, "Experiência Profissional", "professional", "dark")}

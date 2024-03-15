@@ -16,7 +16,7 @@ export default function BannerSection({curriculumData}: {curriculumData: any}){
 
     return(
         <section id="banner" 
-        className="relative flex flex-col lg:flex-row justify-center lg:justify-between items-center p-5 lg:p-20 xl:p-44 xl:h-[80vh]"
+        className="relative flex flex-row flex-wrap justify-center lg:justify-between items-center py-10 xl:py-[150px] lg:px-[180px]"
         >
             <Image  
             src={"/banner_background.jpeg"} 

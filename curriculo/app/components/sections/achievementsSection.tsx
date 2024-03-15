@@ -27,8 +27,8 @@ export default function AchievementsSection(){
                     {Object.keys(achievements).reverse().map((year) => {
                         return(
                             <div key={year} className="font-raleway flex flex-col">
-                                <div className="flex flex-row flex-wrap m-[2vw] justify-center">
-                                <h2 className="text-lightBlue bg-darkBlue text-center font-raleway text-[40px] lg:text-[50px] font-bold w-[100%] mx-5 self-center rounded-3xl">{year}</h2>
+                                <h2 className="text-lightBlue bg-darkBlue text-center font-raleway text-[40px] lg:text-[50px] font-bold ">{year}</h2>
+                                <div className="flex flex-row flex-wrap m-[10px] justify-center">
                                     {achievements[year].map((achiev: Achievement) => {
                                         return(
                                             <div key={achiev.id} className={`${mainColors} m-4 sm:max-w-sm lg:max-w-lg group overflow-hidden flex flex-col justify-between transition-all duration-300 ease-out rounded-3xl border-[1px] shadow-2xl`}>
@@ -36,8 +36,8 @@ export default function AchievementsSection(){
                                                     <h2 className="font-raleway font-bold text-[32px]">{achiev.title}</h2>
                                                     <p className="font-raleway text-[24px]">{achiev.description}</p>
                                                 </div>
-                                                <div className="transition-all duration-300 ease-out bg-darkBlue group-hover:bg-lightBlue text-yellow group-hover:text-darkBlue">
-                                                    <span className="font-bold text-[32px] italic pl-[2vw] text-nowrap">{achiev.institution_name}</span>
+                                                <div className="transition-all scroll overflow-auto duration-300 ease-out bg-darkBlue group-hover:bg-lightBlue text-yellow group-hover:text-darkBlue">
+                                                    <span className="font-bold text-[32px] italic px-[20px] text-nowrap">{achiev.institution_name}</span>
                                                 </div>
                                             </div>
                                         );

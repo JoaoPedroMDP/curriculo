@@ -38,8 +38,7 @@ export default class Achievement extends HasDate{
 
         return (
             <div key={this.id}
-            className="flex flex-col items-center justify-between p-5 min-w-[20vw] 
-            sm:max-w-[25vw] rounded-3xl border-[1px] shadow-2xl text-center 
+            className="flex flex-col items-center justify-between p-5 min-w-[150px] rounded-3xl border-[1px] shadow-2xl text-center 
             text-darkBlue hover:text-yellow border-darkBlue hover:bg-darkBlue
             transition-all duration-300 ease-out m-5"
             >
