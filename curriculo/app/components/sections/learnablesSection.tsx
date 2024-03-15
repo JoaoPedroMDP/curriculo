@@ -34,6 +34,7 @@ export default function LearnablesSection({updateFilters}: {updateFilters: Calla
         <section id="learnables" className="bg-black">
             <div className="font-raleway flex flex-col flex-wrap align-middle py-2">
                 <h1 className="text-center mt-4 text-[50px] lg:text-[60px] font-bold">Ferramentas</h1>
+                <span className="text-yellow text-center text-[20px]">&#40;Você pode selecionar itens abaixo para filtrar as experiências acima ;&#41;</span>
                 <div className="flex flex-col lg:flex-row px-5 sm:px-10 my-5 gap-5">
                     <div className="lg:basis-1/2 flex rounded-3xl flex-col bg-mediumBlue text-whiteBlue">
                         <div className="flex flex-col justify-center">
@@ -54,7 +55,6 @@ export default function LearnablesSection({updateFilters}: {updateFilters: Calla
                         </div>
                     </div>
                 </div>
-                <span className="text-yellow text-center text-[20px]">&#40;Você pode selecionar itens acima para filtrar as experiências abaixo ;&#41;</span>
             </div>
         </section>
     );
