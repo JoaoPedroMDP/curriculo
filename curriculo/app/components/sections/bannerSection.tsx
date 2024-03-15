@@ -19,25 +19,25 @@ export default function BannerSection({curriculumData}: {curriculumData: any}){
         className="relative flex flex-row flex-wrap justify-center lg:justify-between items-center py-10 xl:py-[150px] lg:px-[180px]"
         >
             <Image  
-            src={"/beach_background.png"} 
+            src={"/banner_background.jpeg"} 
             fill
-            alt="Autor do currículo de touca, numa praia nublada com neblina"
-            className="absolute opacity-30 z-[-1] object-cover"
+            alt="Autor do currículo numa trilha no Pico do Anhangava. Óculos de sol, boné preto e mochila cinza."
+            className="absolute opacity-30 z-[-1] object-cover object-right-top max-sm:hidden"
             />
-            <div className="flex flex-col items-center xl:items-start text-center lg:text-start order-2 lg:order-1 mt-10 lg:mt-0 lg:basis-2/3">
-                <p className="font-bebas text-[50px] lg:text-[60px] xl:text-[70px] 2xl:text-[96px]">{user.name}</p>
-                <p className="font-raleway text-[25px] lg:text-[22px] xl:text-[28px] 2xl:text-[36px]">{user.title}</p>
-                <p className="font-raleway text-[18px] lg:text-[15px] xl:text-[18px] 2xl:text-[24px]">{user.marital_status} | {age} anos</p>
-                <p className="font-raleway text-[18px] lg:text-[15px] xl:text-[18px] 2xl:text-[24px]">{user.email}</p>
-                <p className="font-raleway text-[18px] lg:text-[15px] xl:text-[18px] 2xl:text-[24px]"><a href={user.linkedin} target="blank">Linkedin</a> | <a href={curriculumData.github} target="blank">Github</a></p>
+            <div className="flex flex-col xl:items-start text-center lg:text-start order-2 lg:order-1 mt-10 lg:mt-0 lg:basis-2/3">
+                <p className="font-bebas text-[50px] lg:text-[60px] xl:text-[80px]">{user.name}</p>
+                <p className="font-raleway text-[25px] lg:text-[22px] xl:text-[30px]">{user.title}</p>
+                <p className="font-raleway text-[18px] lg:text-[15px] xl:text-[20px]">{user.marital_status} | {age} anos</p>
+                <p className="font-raleway text-[18px] lg:text-[15px] xl:text-[20px]">{user.email}</p>
+                <p className="font-raleway text-[18px] lg:text-[15px] xl:text-[20px]"><a href={user.linkedin} target="blank">Linkedin</a> | <a href={user.github} target="blank">Github</a></p>
             </div>
 
-            <div className="relative w-[250px] h-[250px] 2xl:w-[400px] 2xl:h-[400px] order-1 2xl:order-2">
+            <div className="relative w-[250px] h-[250px] xl:w-[350px] xl:h-[350px] order-1 2xl:order-2">
                 <Image 
-                className="rounded-full" 
-                src={"/author_profile.png"} 
+                className="rounded-full object-cover" 
+                src={"/author.jpeg"} 
                 fill
-                alt="Autor do currículo de touca, numa praia nublada com neblina"
+                alt="Autor do currículo"
                 />
             </div>
         </section>
