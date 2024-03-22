@@ -29,7 +29,7 @@ export default function BannerSection({curriculumData}: {curriculumData: any}){
             </div>
             
             <div className="flex flex-col flex-wrap flex-shrink m-5 text-center lg:text-start lg:order-1">
-                <title className="font-bebas text-[35px] lg:text-[50px]">{user.name}</title>
+                <p className="font-bebas text-[35px] lg:text-[50px]">{user.name}</p>
                 <p className="font-raleway text-wrap text-[20px] lg:text-[25px]">{user.title}</p>
                 <p className="font-raleway text-wrap text-[15px] lg:text-[25px]">{user.marital_status} | {age} anos</p>
                 <p className="font-raleway text-wrap text-[15px] lg:text-[25px]">{user.email}</p>
