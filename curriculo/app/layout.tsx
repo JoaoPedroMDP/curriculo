@@ -7,11 +7,6 @@ import { curriculumData } from "./data/data";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "João Pedro Martins",
-  description: "Currículo",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -22,17 +17,14 @@ export default function RootLayout({
       <head>
         <meta property="og:type" content="website"/>
         <meta property="og:title" content={"Currículo de " + curriculumData.user.name} />
-        <meta name="author" content={curriculumData.user.name} />
-
+        <meta property="og:author" content={curriculumData.user.name} />
         <meta property="og:description" content={curriculumData.user.brief} />
         <meta property="og:image" content="author.jpeg" />
-
+        <title>{curriculumData.user.name}</title>
         <meta name="twitter:card" content={"Currículo de " + curriculumData.user.name}/>
       </head>
       <body className={inter.className}>
         {children}
-        <Analytics/>
-        <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS || ""} />
         </body>
     </html>
   );

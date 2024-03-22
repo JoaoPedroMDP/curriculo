@@ -12,6 +12,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        slideIn: {
+          "0%": { transform: "translateY(100%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        slideIn: "slideIn .7s ease-in-out",
+      },
       fontFamily: {
         bebas: ['"Bebas Neue"', 'sans-serif'],
         raleway: ['Raleway', 'sans-serif'],
