@@ -4,6 +4,7 @@ services:
   front:
     build:
       context: ./curriculo
+      dockerfile: ../Dockerfile
     image: curriculo-front
     ports:
       - "3000:3000"
