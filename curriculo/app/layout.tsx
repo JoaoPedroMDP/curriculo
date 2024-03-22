@@ -25,8 +25,6 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         {children}
-        <Analytics/>
-        <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS || ""} />
         </body>
     </html>
   );
