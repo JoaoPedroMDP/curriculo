@@ -37,14 +37,14 @@ function renderInstitutionExperiences(exps: Experience[], filters: Learnable[], 
     let selectedTheme: string = theme == "dark" ? "bg-whiteBlue" : "bg-darkBlue";
 
     return(
-        <div key={institution_id}>
+        <div key={institution_id} className="print:text-black">
             <p className="font-raleway font-bold text-[20px] sm:text-[34px]">{institution_name}</p>
             <div className="flex flex-col">
                 {exps.map((exp: Experience) => {
                     let filtered = !passFilters(exp, filters);
                     return(
-                        <div key={exp.id} className={`flex flex-row ${filtered ? 'opacity-10': ''}`}>
-                            <span className={`mx-[20px] w-[2px] shrink-0 ${selectedTheme}`}></span>
+                        <div key={exp.id} className={`flex flex-row ${filtered ? 'opacity-10': ''} print:ml-7`}>
+                            <span className={`mx-[20px] w-[2px] shrink-0 ${selectedTheme} print:hidden`}></span>
                             {exp.render()}
                         </div>
                     );
@@ -62,8 +62,8 @@ function renderExperiences(institutions: Institution[], filters: Learnable[], ti
 
     return(
         <div className={`lg:basis-1/2 w-full ${selectedTheme}`}>
-            <p className={`${line} after:bg-mediumBlue sticky font-raleway text-[40px] sm:text-[50px] lg:text-[60px] text-center mt-5 mx-5`}>{title}</p>
-            <div className={`flex flex-col h-[400px] lg:h-[500px] px-[40px] py-5 gap-10`}>
+            <p className={`${line} after:bg-mediumBlue sticky font-raleway text-[40px] sm:text-[50px] lg:text-[60px] text-center mt-5 mx-5 print:text-black print:m-0`}>{title}</p>
+            <div className={`flex flex-col h-[400px] lg:h-[500px] px-[40px] py-5 gap-10 print:h-fit print:gap-0 print:p-0`}>
                 <div className={`scroll overflow-auto no-overflow-anchoring ${scrollTheme} flex flex-col gap-5`}>
                     {institutions.map((inst)=>{
                         let exps = inst.getExperiences(expType);

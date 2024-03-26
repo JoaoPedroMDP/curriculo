@@ -12,6 +12,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens :{
+        print: { raw: "print" }
+      },
       keyframes: {
         slideIn: {
           "0%": { transform: "translateY(100%)" },

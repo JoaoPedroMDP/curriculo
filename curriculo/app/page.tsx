@@ -29,7 +29,13 @@ export default function Home() {
 
     return(
         <section id="site" className="flex flex-col">
+            <div className="text-center top bg-black w-full z-10 text-[15px]">
+                <p className="m-2 print:hidden">Sabia que você pode salvar esse currículo como PDF, ou imprimi-lo? Basta apertar as teclas 
+                    <span className="text-yellow italic"> Ctrl</span> e <span className="text-yellow italic">P</span> ao mesmo tempo!
+                </p>
+            </div>
             <BannerSection curriculumData={curriculumData}/>
+            <p className="m-2 hidden print:block">Você pode acessar esse currículo online em <a href="https://joaopedromdp.vercel.app" className="text-yellow">joaopedromdp.vercel.app</a></p>
             <AboutMeSection />
             <ExperiencesSection filters={filters}/>
             <LearnablesSection updateFilters={updateLearnablesFilter}/>

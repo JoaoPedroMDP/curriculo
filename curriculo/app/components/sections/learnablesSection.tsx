@@ -34,20 +34,20 @@ export default function LearnablesSection({updateFilters}: {updateFilters: Calla
         <section id="learnables" className="bg-black">
             <div className="font-raleway flex flex-col flex-wrap align-middle py-2">
                 <h3 className="text-center mt-4 text-[50px] lg:text-[60px] font-bold">Ferramentas</h3>
-                <span className="text-yellow text-center text-[20px]">&#40;Você pode selecionar itens abaixo para filtrar as experiências acima ;&#41;</span>
-                <div className="flex flex-col lg:flex-row px-5 sm:px-10 my-5 gap-5">
-                    <div className="lg:basis-1/2 flex rounded-3xl flex-col bg-mediumBlue text-whiteBlue">
-                        <div className="flex flex-col justify-center">
-                            <h4 className="text-center basis-1/2 text-[40px] sm:text-[50px]">Soft skills</h4>
-                        </div>
+                <span className="text-yellow text-center text-[20px] print:hidden">&#40;Você pode selecionar itens abaixo para filtrar as experiências acima ;&#41;</span>
+                <div className="flex flex-col lg:flex-row px-5 sm:px-10 my-5 gap-5 print:m-0 print:p-0">
+                    
+                    <div className="lg:basis-1/2 flex flex-col rounded-3xl bg-mediumBlue text-whiteBlue print:text-black">
+                        <h4 className="text-center text-[50px] print:text-start print:text-[40px] print:font-bold">Soft skills</h4>
                         <div id="skills" className="flex flex-col sm:flex-row flex-wrap align-middle">
                             {skills.map((skill) => 
                                 <LearnableC key={skill.name} learnable={skill} onClickHandler={updateFilters}/>
                             )}
                         </div>
                     </div>
-                    <div className="lg:basis-1/2 flex flex-col rounded-3xl bg-lightBlue text-darkBlue">
-                        <h4 className="text-center text-[50px]">Hard skills</h4>
+
+                    <div className="lg:basis-1/2 flex flex-col rounded-3xl bg-lightBlue text-darkBlue print:text-black">
+                        <h4 className="text-center text-[50px] print:text-start print:text-[40px] print:font-bold">Hard skills</h4>
                         <div id="tools" className="flex flex-row flex-wrap align-middle">
                             {tools.map((tool) => 
                                 <LearnableC key={tool.name} learnable={tool} onClickHandler={updateFilters}/>

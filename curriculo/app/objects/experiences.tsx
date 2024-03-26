@@ -52,7 +52,7 @@ class Experience extends HasDate{
 
     render(): JSX.Element{
         return (
-            <div className="my-3">
+            <div className="my-3 print:break-inside-avoid">
                 {this.renderHeaders()}
                 <p className="pt-2 text-[15px] sm:text-[20px]">{this.description}</p>
             </div>
