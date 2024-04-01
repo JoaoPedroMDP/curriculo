@@ -29,7 +29,7 @@ export default function Home() {
 
     return(
         <section id="site" className="flex flex-col">
-            <div className="text-center top bg-black w-full z-10 text-[15px]">
+            <div className="text-center top bg-black w-full z-10 text-[20px]">
                 <p className="m-2 print:hidden">Sabia que você pode salvar esse currículo como PDF, ou imprimi-lo? Basta apertar as teclas 
                     <span className="text-yellow italic"> Ctrl</span> e <span className="text-yellow italic">P</span> ao mesmo tempo!
                 </p>

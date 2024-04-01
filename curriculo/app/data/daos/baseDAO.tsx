@@ -4,7 +4,7 @@ export default abstract class BaseDAO{
     build(data: any): any {
         throw new Error("Method not implemented.");
     }
-    
+
     getById(id: number): any {
         let raw_data: any = this.dataSource.find((item) => item.id === id);
         if(raw_data != undefined){
