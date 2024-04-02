@@ -2,12 +2,12 @@
 export default class Idiom{
     id: string
     name: string
-    writing: string
-    reading: string
-    speaking: string
-    listening: string
+    writing: number
+    reading: number
+    speaking: number
+    listening: number
 
-    constructor({id, name, writing, reading, speaking, listening}: {id: string, name: string, writing: string, reading: string, speaking: string, listening: string}){
+    constructor({id, name, writing, reading, speaking, listening}: {id: string, name: string, writing: number, reading: number, speaking: number, listening: number}){
         this.id = id
         this.name = name
         this.writing = writing
