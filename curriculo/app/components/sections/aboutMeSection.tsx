@@ -18,7 +18,7 @@ export default function AboutMeSection(){
                 </div>
                 <p className="text-[25px] font-bold text-center mt-5">Idiomas</p>
                 <div className="flex flex-row justify-around">
-                    {idioms.map((idiom) => <IdiomC idiom={idiom} />)}
+                    {idioms.map((idiom) => <IdiomC key={idiom.id} idiom={idiom} />)}
                 </div>
             </div>
         </section>
