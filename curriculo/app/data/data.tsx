@@ -185,6 +185,25 @@ const experiences: any = [
     }
 ];
 
+const idioms = [
+    {
+        "id": 0,
+        "name": "Inglês",
+        "reading": 5,
+        "writing": 4,
+        "speaking": 3,
+        "listening": 4
+    },
+    {
+        "id": 1,
+        "name": "Português",
+        "reading": 5,
+        "writing": 5,
+        "speaking": 5,
+        "listening": 5
+    }
+];
+
 const curriculumData: any = {
     "user": {
         "name": "João Pedro Martins de Paula",
@@ -199,4 +218,4 @@ const curriculumData: any = {
     }
 }
 
-export {curriculumData, institutions, achievements, experiences};
+export {curriculumData, institutions, achievements, experiences, idioms};
