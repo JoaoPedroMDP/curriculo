@@ -14,4 +14,5 @@ services:
       NODE_ENV: "development"
     volumes:
       - ./curriculo:/app
+      - /app/node_modules/
 

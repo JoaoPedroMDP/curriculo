@@ -13,9 +13,14 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 
 export default function Home() {
     const [dataConsent, setDataConsent] = useState(undefined);
+    const [enableAnalytics, setEnableAnalytics] = useState(false);
     const [filters, setFilters]: any = useState({});
 
     useEffect(() => {}, [dataConsent]);
+    
+    setTimeout(() => {
+        setEnableAnalytics(true);
+    }, 4000);
 
     function updateLearnablesFilter(learnable: Learnable){
         if(filters[learnable.name]){
@@ -41,7 +46,7 @@ export default function Home() {
             <LearnablesSection updateFilters={updateLearnablesFilter}/>
             <AchievementsSection />
             <DataConsentSection consented={dataConsent} updateConsent={setDataConsent}/>
-            {dataConsent == true &&
+            {(dataConsent || enableAnalytics) &&
                 <>
                     <Analytics/>
                     <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS || ""} />
