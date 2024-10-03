@@ -157,8 +157,8 @@ export default function Home() {
             <Section id="experiences" title="Experiências" classes="bg-offBlack text-offWhite dark:bg-offWhite dark:text-offBlack">
                 <div className="flex flex-col my-5">
                     <div className='flex justify-between sm:justify-center sm:gap-20 mb-2'>
-                        <span className={`text-[15px] text-center cursor-pointer ${expType == "P" ? "border-b-2 border-offWhite dark:border-offBlack" : ""}`} onClick={() => setExpType("P")}>Experiência Profissional</span>
-                        <span className={`text-[15px] text-center cursor-pointer ${expType == "A" ? "border-b-2 border-offWhite dark:border-offBlack" : ""}`} onClick={() => setExpType("A")}>Experiência Acadêmica</span>
+                        <span className={`text-[15px] lg:text-[20px] text-center cursor-pointer ${expType == "P" ? "border-b-2 border-offWhite dark:border-offBlack" : ""}`} onClick={() => setExpType("P")}>Experiência Profissional</span>
+                        <span className={`text-[15px] lg:text-[20px] text-center cursor-pointer ${expType == "A" ? "border-b-2 border-offWhite dark:border-offBlack" : ""}`} onClick={() => setExpType("A")}>Experiência Acadêmica</span>
                     </div>
                     <div className="max-h-[500px] overflow-y-scroll border-b-[1px] border-offWhite dark:border-offBlack">
                         <Experiences exps={expType == "P" ? profExp : acadExp} />
