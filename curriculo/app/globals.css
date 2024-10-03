@@ -3,21 +3,6 @@
 @tailwind utilities;
 
 
-@font-face {
-  font-family: Bebas Neue;
-  src: url("../public/fonts/BebasNeue-Regular.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: Raleway;
-  src: url("../public/fonts/Raleway-VariableFont_wght.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: Goldman;
-  src: url("../public/fonts/Goldman-Regular.ttf") format("truetype");
-}
-
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -49,29 +34,7 @@ body {
 }
 
 a {
-  @apply text-yellow hover:text-lightBlue visited:text-lightBlue;
-}
-
-.scroll::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-.scroll::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* Handle */
-.scroll::-webkit-scrollbar-thumb {
-  border-radius: 3px;
-}
-
-.light-scroll::-webkit-scrollbar-thumb{
-  @apply bg-whiteBlue;
-}
-
-.dark-scroll::-webkit-scrollbar-thumb{
-  @apply bg-darkBlue;
+  @apply hover:text-yellow visited:text-yellow;
 }
 
 /* Handle on hover */
