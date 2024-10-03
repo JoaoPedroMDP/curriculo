@@ -10,6 +10,7 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: 'selector',
   theme: {
     extend: {
       screens :{
@@ -36,7 +37,9 @@ const config: Config = {
         mediumBlue: '#026873',
         lightBlue: '#2AB0BF',
         whiteBlue: '#DEF2F4',
-        yellow: '#F2B641'
+        yellow: '#F2B641',
+        offWhite: '#FFEFDD',
+        offBlack: '#33302C'
       }
     },
   },

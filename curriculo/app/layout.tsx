@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Lexend } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react"
 import { GoogleAnalytics } from '@next/third-parties/google'
-import { curriculumData } from "./data/data";
+import { userData } from "./data/data";
 
-const inter = Inter({ subsets: ["latin"] });
+const lexend = Lexend({ 
+  subsets: ["latin"],
+  weight: ['200', '400', '600', '800'],
+});
 
 export default function RootLayout({
   children,
@@ -16,14 +19,13 @@ export default function RootLayout({
     <html lang="en" className="scroll light-scroll">
       <head>
         <meta property="og:type" content="website"/>
-        <meta property="og:title" content={"Currículo de " + curriculumData.user.name} />
-        <meta property="og:author" content={curriculumData.user.name} />
-        <meta property="og:description" content={curriculumData.user.brief} />
+        <meta property="og:title" content={"Currículo de " + userData.name} />
+        <meta property="og:author" content={userData.name} />
         <meta property="og:image" content="author.jpeg" />
-        <title>{curriculumData.user.name}</title>
-        <meta name="twitter:card" content={"Currículo de " + curriculumData.user.name}/>
+        <title>{userData.name}</title>
+        <meta name="twitter:card" content={"Currículo de " + userData.name}/>
       </head>
-      <body className={inter.className}>
+      <body className={lexend.className}>
         {children}
         </body>
     </html>
